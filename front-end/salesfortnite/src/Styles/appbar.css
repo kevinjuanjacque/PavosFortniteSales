@@ -1,0 +1,13 @@
+.colorDegradientLinear{
+    background: linear-gradient(0deg, rgba(41,24,116,1) 0%, rgba(41,24,116,1) 35%, rgba(129,19,117,1) 100%);
+}
+
+.sizedSubNav{
+    background-color: rgba(41,24,116,1);
+    
+}
+
+.separador{
+    height: 1px;
+    background-color: grey;
+}

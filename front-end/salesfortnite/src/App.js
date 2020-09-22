@@ -1,11 +1,10 @@
 import React from 'react';
+import { Rutas } from './routers/Rutas';
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>hola mundo</h1>
-    </div>
+    <Rutas/>
   );
 }
 
