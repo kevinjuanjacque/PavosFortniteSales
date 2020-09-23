@@ -7,9 +7,10 @@ import {
     Switch,
     Route,
   } from 'react-router-dom';
-import { Navbar } from '../components/navbar';
-import { Home } from '../pages/Home';
-
+  
+  import { Navbar } from '../components/navbar';
+  import { Home } from '../pages/Home';
+  import { LoginScreen } from '../pages/LoginScreen';
 
 
 
@@ -20,7 +21,8 @@ export const Rutas = () => {
             <Navbar />
 
             <Switch>
-                <Route path="/" component={Home} />
+                <Route exact path="/" component={Home} />
+                <Route path="/Login" component={LoginScreen} />
             </Switch>
 
         </Router>

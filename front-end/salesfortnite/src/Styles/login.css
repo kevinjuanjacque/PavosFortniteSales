@@ -1,0 +1,12 @@
+.animate__animated.animate__backInRight {
+    animation-duration: 1s;
+}
+
+img{
+    max-height: 200px;
+    max-width: 200px;
+    align-self: center;
+}
+.card-body{
+    text-align: center;
+}

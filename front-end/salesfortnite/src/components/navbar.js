@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../Styles/appbar.css';
 
 export const Navbar = () => {
@@ -6,10 +7,10 @@ export const Navbar = () => {
         <>
             <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark ">
                 <div className="container">
-                    <p className="navbar-brand" >Navbar</p>
+                    <Link to="/" className="navbar-brand" >Navbar</Link>
                 </div>
                 
-                <button className="btn btn-light">Light</button>
+                <Link to="/Login" className="btn btn-light">Light</Link>
             </nav>
             <div className="separador" />
             <div className="sizedSubNav sticky-top">
