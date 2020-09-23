@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../Styles/appbar.css';
 
 export const Navbar = () => {
@@ -13,36 +13,38 @@ export const Navbar = () => {
                 <Link to="/Login" className="btn btn-light">Iniciar</Link>
             </nav>
             <div className="separador" />
-            <div className="sizedSubNav sticky-top">
-                <div className="container row row-cols-8 text-white mx-auto">
-                    <div className="col mt-2 mb-2 ">
-                        PlayStation
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        Xbox one
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        nintendo
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        steam
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        google
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        itun
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        riot
-                    </div>
-                    <div className="col mt-2 mb-2">
-                        fornai
-                    </div>
-
+            <nav className="navbar colorSubNav navbar-expand-lg navbar-dark  sticky-top ">
+                
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav mx-auto">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeClassName="active" to="/Playstation"> PlayStation </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Xbox">Xbox one</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Nintendo">nintendo</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Steam">steam</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Google">google</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Apple">Apple</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Riot"> riot</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link " activeClassName="active" to="/Fortnite">fornai</NavLink>
+                        </li>
+                    </ul>
                 </div>
-
-            </div>
+            </nav>
+            
         </>
     )
 }

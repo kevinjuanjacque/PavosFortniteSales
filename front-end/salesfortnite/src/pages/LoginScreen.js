@@ -32,9 +32,6 @@ export const LoginScreen = () => {
                         onSuccess={responseGoogle}
                         className="m-2"
                     />
-
-
-                
                 
             </div>
 
