@@ -6,10 +6,10 @@ export const Navbar = () => {
         <>
             <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark ">
                 <div className="container">
-                    <p className="navbar-brand" >Navbar</p>
+                    <p className="navbar-brand">Navbar</p>
                 </div>
                 
-                <button className="btn btn-light">Light</button>
+                <button className="btn btn-light">Iniciar sesión</button>
             </nav>
             <div className="separador" />
             <div className="sizedSubNav sticky-top">
