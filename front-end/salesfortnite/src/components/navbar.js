@@ -10,7 +10,7 @@ export const Navbar = () => {
                     <Link to="/" className="navbar-brand" >Navbar</Link>
                 </div>
                 
-                <Link to="/Login" className="btn btn-light">Light</Link>
+                <Link to="/Login" className="btn btn-light">Iniciar</Link>
             </nav>
             <div className="separador" />
             <div className="sizedSubNav sticky-top">
