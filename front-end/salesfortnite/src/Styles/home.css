@@ -1,0 +1,11 @@
+/* Para hacer el carousel responsive*/
+.carousel-inner img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Genera la linea de productos destacados*/
+.separador{
+    height: 2px;
+    background-color:rgba(41,24,116,1);
+}
