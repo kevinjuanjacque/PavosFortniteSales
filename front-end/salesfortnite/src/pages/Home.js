@@ -12,7 +12,7 @@ export const Home = () => {
             </ol>
             <div className="carousel-inner">
                 <div className="carousel-item active img-fluid">
-                    <img src="../assets/fondo_ps4.jpg" width="1500" height="1500" className="d-block w-100" alt="imagen"  />
+                    <img src="../assets/fondo_ps4.jpg"  className="d-block w-100" alt="imagen"  />
                 </div>
                 <div className="carousel-item">
                     <img src="../assets/steam_card.png" className="d-block w-100" alt="imagen"/>
