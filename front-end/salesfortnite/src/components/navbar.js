@@ -5,17 +5,30 @@ import '../Styles/appbar.css';
 export const Navbar = () => {
     return (
         <>
-            <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark ">
-                <div className="container">
-                    <Link to="/" className="navbar-brand" >Navbar</Link>
-                </div>
+            <div className=" colorDegradientLinear border-bottom-0">
+
                 
-                <Link to="/Login" className="btn btn-light">Iniciar</Link>
-            </nav>
-            <div className="separador" />
+                    <div className="container " >
+                        <div class="row row-cols-2 ">
+                            <div class="col mt-2 mb-2">
+                                <Link to="/" className="text-white " >Navbar</Link>
+                            </div>
+                            <div class="col mt-2 mb-2" id="nav1">
+                                <Link to="/Login" className=" btn btn-light ">Iniciar</Link>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                     
+            </div>
+            
             <nav className="navbar colorSubNav navbar-expand-lg navbar-dark  sticky-top ">
-                
-                <div className="collapse navbar-collapse" id="navbarNav">
+            
+                <button className="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse " id="navbarNav">
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
                             <NavLink className="nav-link" activeClassName="active" to="/Playstation"> PlayStation </NavLink>
