@@ -9,11 +9,11 @@ export const Navbar = () => {
 
                 
                     <div className="container " >
-                        <div class="row row-cols-2 ">
-                            <div class="col mt-2 mb-2">
+                        <div className="row row-cols-2 ">
+                            <div className="col mt-2 mb-2">
                                 <Link to="/" className="text-white" >Navbar</Link>
                             </div>
-                            <div class="col mt-2 mb-2" id="nav1">
+                            <div className="col mt-2 mb-2" id="nav1">
                                 <Link to="/Login" className=" btn btn-light ">Iniciar</Link>
                             </div>
                             

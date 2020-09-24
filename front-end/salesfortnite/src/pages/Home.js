@@ -32,75 +32,75 @@ export const Home = () => {
 
         </div>
         
-        <div class="container">
+        <div className="container">
             <br></br>
             <h5>PRODUCTOS DESTACADOS</h5>
             <div className="separador" />
             <br></br>
-            <div class="row row-cols" align="center">
-                <div class="col">
+            <div className="row row-cols" align="center">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD</p> 
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD2</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD3</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD4</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD5</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD3</p>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div className="container">
             <br></br>
             <h5>NUEVOS PRODUCTOS</h5>
             <div className="separador" />
             <br></br>
-            <div class="row row-cols" align="center">
-                <div class="col">
+            <div className="row row-cols" align="center">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD4</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD5</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD3</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD4</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD5</p>
                 </div>
 
-                <div class="col">
+                <div className="col">
                     <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
                     <p>$10 PSN GIFT CARD5</p>
                 </div>  
