@@ -8,7 +8,18 @@
 }
 
 .separador{
+<<<<<<< HEAD
     height: 1px;
     background-color: grey;
 }
 
+=======
+    height: 2px;
+    background: white;
+}
+
+#nav1{
+    width: 100%;
+    text-align: end;
+}
+>>>>>>> 0ff1210e8858e223950539875596494b8550d936
