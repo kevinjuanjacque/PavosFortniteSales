@@ -1,9 +1,18 @@
 import React from 'react'
 import  '../Styles/home.css'
+import  { CarouselFotos } from '../components/home/carousel.js'
+import { ProductosDestacados } from '../components/home/productos-destacados.js'
+import  { NuevosProductos } from '../components/home/nuevos-productos.js'
+
 export const Home = () => {
     return (
         
         <>
+<<<<<<< HEAD
+            <CarouselFotos/>
+            <ProductosDestacados/>
+            <NuevosProductos/>
+=======
         <div id="carousel1" className="container carousel slide animate__animated animate__backInLeft mt-2" data-ride="carousel">
             <ol className="carousel-indicators">
                 <li data-target="#carousel1" data-slide-to="0" className="active"></li>
@@ -109,6 +118,7 @@ export const Home = () => {
 
         </div>
 
+>>>>>>> 0ff1210e8858e223950539875596494b8550d936
         </>
     )
 }
