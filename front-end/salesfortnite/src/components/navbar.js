@@ -5,13 +5,13 @@ import '../Styles/appbar.css';
 export const Navbar = () => {
     return (
         <>
-            <div className=" colorDegradientLinear border-bottom-0">
+            <div className=" colorDegradientLinear border-bottom-0 ">
 
                 
                     <div className="container " >
                         <div class="row row-cols-2 ">
                             <div class="col mt-2 mb-2">
-                                <Link to="/" className="text-white " >Navbar</Link>
+                                <Link to="/" className="text-white" >Navbar</Link>
                             </div>
                             <div class="col mt-2 mb-2" id="nav1">
                                 <Link to="/Login" className=" btn btn-light ">Iniciar</Link>
@@ -20,10 +20,11 @@ export const Navbar = () => {
                             
                         </div>
                     </div>
-                     
+                    
+                   
             </div>
             
-            <nav className="navbar colorSubNav navbar-expand-lg navbar-dark  sticky-top ">
+            <nav className="navbar colorSubNav navbar-expand-lg navbar-dark  sticky-top animate__animated  animate__fadeIn ">
             
                 <button className="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

@@ -4,7 +4,7 @@ export const Home = () => {
     return (
         
         <>
-        <div id="carousel1" className="container carousel slide" data-ride="carousel">
+        <div id="carousel1" className="container carousel slide animate__animated animate__backInLeft mt-2" data-ride="carousel">
             <ol className="carousel-indicators">
                 <li data-target="#carousel1" data-slide-to="0" className="active"></li>
                 <li data-target="#carousel1" data-slide-to="1"></li>
