@@ -25,7 +25,7 @@ export const RutasCliente = () => {
     return (
         <Router>
             
-            <Navbar />
+            <Navbar id="navBarCliente" />
 
             <Switch>
 
@@ -41,6 +41,8 @@ export const RutasCliente = () => {
                 <Route exact path="/Steam" component={Steam} />
                 <Route exact path="/Nintendo" component={Nintendo} />
                 <Route exact path="/NotFound" component={NotFoundScreen} />
+
+
 
                 <Redirect to="/NotFound" />
             </Switch>

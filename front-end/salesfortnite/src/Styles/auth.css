@@ -4,17 +4,29 @@ body {
 	background: #eee !important;	
 }
 
+.colorDif{
+	background-color:rgba(129,19,117,1);
+	border: 1px solid rgba(41,24,116,1); 
+}
+.colorBtn{
+	background-color:rgba(129,19,117,1);
+}
+
+
+
+.colorSal{
+	background-color: #f8f8f8;
+	border: 1px solid  rgba(41,24,116,1); 
+}
+
 .wrapper {	
-	margin-top: 80px;
-  margin-bottom: 80px;
+		margin-top: 80px;
+	  margin-bottom: 80px;
 }
 
 .form-signin {
-  max-width: 380px;
-  padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  }
+  max-width: 100%;
+  padding: 15px 35px 45px; }
 
   .form-signin-heading,
 	.checkbox {
@@ -27,7 +39,6 @@ body {
 
 	.form-control {
 	  position: relative;
-	  font-size: 16px;
 	  height: auto;
 	  padding: 10px;
 	}
