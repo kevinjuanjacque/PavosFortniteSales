@@ -12,6 +12,8 @@ export const Home = () => {
             <CarouselFotos/>
             <ProductosDestacados/>
             <NuevosProductos/>
+
+            
         </>
     )
 }

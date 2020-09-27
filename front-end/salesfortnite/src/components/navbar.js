@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../Styles/appbar.css';
+import { SideBar } from './SideBar';
+
 
 export const Navbar = () => {
     return (
         <>
+        
             <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark sticky-top ">
                 <div class="container">
                     <Link to="/" className="navbar-brand" >
@@ -16,35 +19,20 @@ export const Navbar = () => {
                     </form>               
                     <div className="collapse navbar-collapse" id="navbarNav" >
                         <ul className="navbar-nav" mr-auto>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" activeClassName="active" to="/Playstation"> PlayStation </NavLink>
-                            </li>
+                            
                             <li className="nav-item">
                                 <NavLink className="nav-link " activeClassName="active" to="/Xbox">Xbox One</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link " activeClassName="active" to="/Nintendo">Nintendo</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Steam">Steam</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Google">Google</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Apple">Apple</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Riot">Riot</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Fortnite">Fortnite</NavLink>
-                            </li>
                         </ul>
+                        
                     </div>
-                    <Link to="/Login" className="btn btn-light">Iniciar Sesión</Link>
+                    <SideBar />
                 </div>
             </nav>
+            
         </>
     )
 }
