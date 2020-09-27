@@ -13,18 +13,18 @@ export const AuthLogin = () => {
         <>
             
             
-                    <div class="wrapper animate__animated animate__fadeIn">
-                        <form class="form-signin" onSubmit={(e)=>{
+                    <div className="wrapper animate__animated animate__fadeIn">
+                        <form className="form-signin" onSubmit={(e)=>{
                             e.preventDefault();
                         }}>
                             
-                        <h2 class="form-signin-heading"><BsPerson size="40"  /> Iniciar</h2>
-                        <input required type="email" class="form-control" name="username" placeholder="Email Address"  />
-                        <input required type="password" class="form-control" name="password" placeholder="Password" />      
-                        <label class="checkbox">
+                        <h2 className="form-signin-heading"><BsPerson size="40"  /> Iniciar</h2>
+                        <input required type="email" className="form-control" name="username" placeholder="Email Address"  />
+                        <input required type="password" className="form-control" name="password" placeholder="Password" />      
+                        <label className="checkbox">
                             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me
                         </label>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar </button>   
+                        <button className="btn btn-lg btn-primary btn-block" type="submit">Entrar </button>   
                         </form>
                         <hr />
                         <GoogleLogin
