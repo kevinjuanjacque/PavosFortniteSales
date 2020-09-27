@@ -30,7 +30,7 @@ export const AuthLogin = () => {
                         <GoogleLogin
                             clientId="841254428842-4kti4fmap164cpdfk9026tvsm2984gep.apps.googleusercontent.com"
                             onSuccess={responseGoogle}
-                            isSignedIn={true}
+                            isSignedIn={false}
                             className="mr-5 ml-5"
                         
                         />

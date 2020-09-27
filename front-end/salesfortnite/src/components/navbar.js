@@ -21,10 +21,7 @@ export const Navbar = () => {
                         <ul className="navbar-nav mr-auto" >
                             
                             <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Xbox">Xbox One</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Nintendo">Nintendo</NavLink>
+                                <NavLink className="nav-link " activeClassName="active" to="/a">Example</NavLink>
                             </li>
                         </ul>
                         

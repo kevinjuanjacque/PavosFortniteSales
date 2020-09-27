@@ -5,28 +5,20 @@ BrowserRouter as Router,
 Switch,
 Route,
 } from 'react-router-dom';
-import { NavBarAdmin } from '../components/NavBarAdmin';
+import { Navbar } from '../components/navbar';
+import { Home } from '../pages/Home';
 
-//import { Navbar } from '../components/navbar';
-import { RutasCliente } from './RutasCliente';
 
 
 export const Rutas = () => {
     return (
         <Router>
             
-            
+            <Navbar />
 
             <Switch>
 
-                <Route exact path="/Administracion" >
-                    <NavBarAdmin />
-                </Route> 
-
-                
-                
-
-                <Route component={RutasCliente} />
+                <Route exact path="/" component={Home}/>
 
             
                 
