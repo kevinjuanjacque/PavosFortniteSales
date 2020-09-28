@@ -2,9 +2,15 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../Styles/appbar.css';
 import { SideBar } from './SideBar';
-
+import {useSelector} from 'react-redux';
+import { AuthComponent } from './login/AuthComponent';
+import { User } from './perfil/User';
 
 export const Navbar = () => {
+    
+    
+    const state = useSelector(state => state.auth);
+    
     return (
         <>
         
@@ -26,7 +32,9 @@ export const Navbar = () => {
                         </ul>
                         
                     </div>
-                    <SideBar />
+                    {
+                        <SideBar Component={ (state.email) ?  User : AuthComponent  } Name={(state.name) ?  state.name : '' } /> 
+                    } 
                 </div>
             </nav>
             

@@ -4,10 +4,13 @@ import '../../Styles/auth.css';
 import { GoogleLogin } from 'react-google-login';
 
 import {BsPerson} from "react-icons/bs";
+import { useDispatch } from 'react-redux';
+import { startGoogleLogin } from '../../helpers/actions/authAction';
 
 export const AuthLogin = () => {
+    const dispatch = useDispatch();
     const responseGoogle = ({profileObj}) => {
-        console.log(profileObj);
+        dispatch(startGoogleLogin(profileObj.name, profileObj.email));
       }
     return (
         <>

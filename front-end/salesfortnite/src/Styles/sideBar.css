@@ -34,4 +34,7 @@
     margin-left: 10%;
     
 }
+.list-group-item {
+  background-color: transparent;
+}
   
