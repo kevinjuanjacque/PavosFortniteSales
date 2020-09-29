@@ -7,6 +7,7 @@ Route,
 } from 'react-router-dom';
 import { Navbar } from '../components/navbar';
 import { Home } from '../pages/Home';
+import { ScreenProducto } from '../pages/ScreenProducto';
 
 
 
@@ -19,6 +20,7 @@ export const Rutas = () => {
             <Switch>
 
                 <Route exact path="/" component={Home}/>
+                <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
 
             
                 

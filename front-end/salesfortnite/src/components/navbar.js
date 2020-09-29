@@ -17,18 +17,46 @@ export const Navbar = () => {
             <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark sticky-top ">
                 <div className="container">
                     <Link to="/" className="navbar-brand" >
-                        <img src="../assets/logo_pavos.png"  alt="imagen" height = "75"/>
+                        <img src="../assets/logo_pavos.png"  alt="imagen" height = "60"/>
                     </Link>
-                    <form className="form-inline">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Busca tu producto..." aria-label="Search"/>
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>               
+          
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                       
                     <div className="collapse navbar-collapse" id="navbarNav" >
-                        <ul className="navbar-nav mr-auto" >
+                        <form className="form-inline">
+                            <input className="form-control mr-sm-2" type="search" placeholder="Busca tu producto..." aria-label="Search"/>
+                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>  
+                        <ul className="navbar-nav" >
+                            <li className="nav-item">
+                                <NavLink className="nav-link " activeClassName="active" to="/">Inicio</NavLink>
+                            </li>
+                            <li className="nav-item dropdown">                               
+                                    <a className="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">Productos</a>
+                                        <ul className="dropdown-menu">
+                                            
+                                            <li className="nav-item">
+                                                <a className="dropdown-item" href="/Playstation"> Playstation</a>
+                                                <a className="dropdown-item" href="/Xbox"> Xbox One</a>
+                                                <a className="dropdown-item" href="/Nintendo"> Nintendo</a>
+                                                <a className="dropdown-item" href="/Steam"> Steam</a>
+                                                <a className="dropdown-item" href="/Google"> Google</a>
+                                                <a className="dropdown-item" href="/Apple"> Apple</a>
+                                                <a className="dropdown-item" href="/Riot"> Riot</a>
+                                                <a className="dropdown-item" href="/Fortnite"> Fortnite</a>
+                                            </li>
+                                        </ul>
+                            </li>
                             
                             <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/a">Example</NavLink>
+                                <NavLink className="nav-link " activeClassName="active" to="/Nosotros">Nosotros</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link " activeClassName="active" to="/Contacto">Contacto</NavLink>
+                            </li>
+
                         </ul>
                         
                     </div>

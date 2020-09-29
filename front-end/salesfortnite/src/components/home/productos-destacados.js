@@ -1,5 +1,4 @@
 import React from 'react';
-
 export const ProductosDestacados = () => { 
     return (
         <div className="container">
@@ -9,7 +8,8 @@ export const ProductosDestacados = () => {
                 <div className="row row-cols" align="center" >
                     <div className="col">
                         <br></br>
-                        <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
+                        
+                        <a href="../Detalle/DetalleProducto" className="btn btn-link">
                             <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
                         </a>
                         
