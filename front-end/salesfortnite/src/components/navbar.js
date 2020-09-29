@@ -2,19 +2,21 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../Styles/appbar.css';
 import { SideBar } from './SideBar';
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
 import { AuthComponent } from './login/AuthComponent';
 import { User } from './perfil/User';
 
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+import { abrirModal } from '../helpers/actions/uiActions';
+
 export const Navbar = () => {
-    
-    
+    const dispatch = useDispatch();
     const state = useSelector(state => state.auth);
     
     return (
         <>
         
-            <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark sticky-top ">
+            <nav className="navbar colorDegradientLinear navbar-expand-lg navbar-dark sticky-top">
                 <div className="container">
                     <Link to="/" className="navbar-brand" >
                         <img src="../assets/logo_pavos.png"  alt="imagen" height = "60"/>
@@ -60,9 +62,17 @@ export const Navbar = () => {
                         </ul>
                         
                     </div>
+                    <button 
+                        type="button" 
+                        className="btn btn-outline-light mr-1"
+                        onClick={()=>{
+                            dispatch(abrirModal())
+                        }}
+                    ><AiOutlineShoppingCart /> (0)</button>
                     {
                         <SideBar Component={ (state.email) ?  User : AuthComponent  } Name={(state.name) ?  state.name : '' } /> 
                     } 
+                    
                 </div>
             </nav>
             
