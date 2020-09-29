@@ -17,3 +17,6 @@
     width: 100%;
     text-align: end;
 }
+.fade{
+    display: block;
+}

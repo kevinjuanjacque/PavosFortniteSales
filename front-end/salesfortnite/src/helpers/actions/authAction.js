@@ -7,3 +7,9 @@ export const startGoogleLogin = (name, email) => {
         }
     }
 }
+
+export const logOut = () => {
+    return {
+        type:"auth-logout"
+    }
+}
