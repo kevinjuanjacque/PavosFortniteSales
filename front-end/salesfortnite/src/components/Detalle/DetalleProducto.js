@@ -1,6 +1,5 @@
 import React from 'react';
-import { DescripcionProducto } from './DescripcionProducto';
-import {MetodoPago} from '../../Styles/imagenes.css';
+import  '../../Styles/imagenes.css';
 export const  DetalleProducto= () => {
     return (
         <>
