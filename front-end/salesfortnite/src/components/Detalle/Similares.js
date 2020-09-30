@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {} from '../../Styles/enlaces.css';
-import {} from '../../Styles/imagenes.css';
-export const ProductosDestacados = () => { 
+export const Similares = () => {
     return (
         <div className="container">
-            <br></br>
-            <h5>PRODUCTOS DESTACADOS</h5>
-            <div className="separador" />
+        <h5>TAMBIÉN PODRÍA INTERESARTE</h5>
+        <div className="separador" />
                 <div className="row row-cols" align="center" >
                     <div className="col">
                         <br></br>
@@ -25,7 +22,6 @@ export const ProductosDestacados = () => {
                             <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
                         </Link>
                         <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
-                        
                     </div>
 
                     <div className="col">
@@ -65,6 +61,6 @@ export const ProductosDestacados = () => {
                         
                     </div>
                 </div>
-        </div>
+    </div>
     )
-}
+} 

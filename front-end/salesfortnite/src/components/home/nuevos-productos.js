@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import {} from '../../Styles/enlaces.css';
+import {} from '../../Styles/imagenes.css';
 
 export const NuevosProductos = () => {
     return(
@@ -10,63 +12,51 @@ export const NuevosProductos = () => {
 
             <div className="row row-cols" align="center">
                 <div className="col">
-                    <br></br>
-                    <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
-                        <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
-                    </a> 
-                    <p>$10 PSN GIFT CARD</p> 
-                    <h6>$7.990</h6>
-                    <button type="button" className="btn btn-primary">Comprar</button>
+                        <br></br>
+                        <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+                            <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
+                        </Link>
+                        <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                 </div>
 
                 <div className="col">
-                    <br></br>
-                    <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
-                        <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
-                    </a> 
-                    <p>$10 PSN GIFT CARD</p> 
-                    <h6>$7.990</h6>
-                    <button type="button" className="btn btn-primary">Comprar</button>
+                        <br></br>
+                        <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+                            <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
+                        </Link>
+                        <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                 </div>
 
                 <div className="col">
-                    <br></br>
-                    <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
-                        <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
-                    </a> 
-                    <p>$10 PSN GIFT CARD</p> 
-                    <h6>$7.990</h6>
-                    <button type="button" className="btn btn-primary">Comprar</button>
+                        <br></br>
+                        <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+                            <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
+                        </Link>
+                        <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                 </div>
 
                 <div className="col">
-                    <br></br>
-                    <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
-                        <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
-                    </a> 
-                    <p>$10 PSN GIFT CARD</p> 
-                    <h6>$7.990</h6>
-                    <button type="button" className="btn btn-primary">Comprar</button>
+                        <br></br>
+                        <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+                            <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
+                        </Link>
+                        <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                 </div>
 
                 <div className="col">
-                    <br></br>
-                    <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
-                        <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
-                    </a> 
-                    <p>$10 PSN GIFT CARD</p> 
-                    <h6>$7.990</h6>
-                    <button type="button" className="btn btn-primary">Comprar</button>
+                        <br></br>
+                        <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+                            <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
+                        </Link>
+                        <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                 </div>
 
                 <div className="col">
-                    <br></br>
-                    <a href="../pages/StoreScreens/Playstation" className="btn btn-link">
-                        <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
-                    </a> 
-                    <p>$10 PSN GIFT CARD</p> 
-                    <h6>$7.990</h6>
-                    <button type="button" className="btn btn-primary">Comprar</button>
+                        <br></br>
+                        <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+                            <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
+                        </Link>
+                        <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                 </div>
             </div>
            

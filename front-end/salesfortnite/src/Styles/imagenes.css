@@ -10,5 +10,15 @@
 .ImagenProducto img{
     width:100%;
     height:100%;
-    
+    /*padding: 0px 0px;
+    border-radius: 10px 10px 10px 10px;
+    */
 }
+
+.ZoomImagen img {
+    transition: transform 0.1s;
+    
+  }
+.ZoomImagen:hover img {
+    transform: scale(1.05);
+  }
