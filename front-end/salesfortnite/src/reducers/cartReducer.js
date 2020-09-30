@@ -29,6 +29,12 @@ export const cartReducer=(state=initialState,action)=>{
 
         case 'vaciar-carro':
             return initialState;
+
+        case 'Re-llenar-products':
+            console.log(action.body.listado)
+            return {
+                'products': action.body.listado
+            };
             
         default:
             return state;
