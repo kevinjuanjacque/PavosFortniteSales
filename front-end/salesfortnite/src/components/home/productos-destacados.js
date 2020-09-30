@@ -25,7 +25,6 @@ export const ProductosDestacados = () => {
                             <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "150"/>
                         </Link>
                         <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
-                        
                     </div>
 
                     <div className="col">
