@@ -1,0 +1,24 @@
+.boton {
+    
+    font-size:14px;
+    text-decoration: none;
+    background: rgb(170, 7, 129);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    
+}
+
+.boton:hover {
+    background: rgb(155, 1, 116);
+    color: white;
+    text-decoration: none;
+    
+}
+
+/*
+.boton:active {
+    background:rgb(104, 5, 79);
+}
+*/

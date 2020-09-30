@@ -9,6 +9,8 @@ import { User } from './perfil/User';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import { abrirModal } from '../helpers/actions/uiActions';
 
+import {CountCart} from './Cart/CountCart'
+
 export const Navbar = () => {
     const dispatch = useDispatch();
     const state = useSelector(state => state.auth);
@@ -68,7 +70,7 @@ export const Navbar = () => {
                         onClick={()=>{
                             dispatch(abrirModal())
                         }}
-                    ><AiOutlineShoppingCart /> (0)</button>
+                    ><AiOutlineShoppingCart /> <CountCart/></button>
                     {
                         <SideBar Component={ (state.email) ?  User : AuthComponent  } Name={(state.name) ?  state.name : '' } /> 
                     } 

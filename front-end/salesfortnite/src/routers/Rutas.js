@@ -6,6 +6,7 @@ Switch,
 Route,
 } from 'react-router-dom';
 import { Navbar } from '../components/navbar';
+import { ShoppingCart } from '../components/ShoppingCart';
 import { Home } from '../pages/Home';
 import { ScreenProducto } from '../pages/ScreenProducto';
 
@@ -16,7 +17,7 @@ export const Rutas = () => {
         <Router>
             
             <Navbar />
-
+            <ShoppingCart  />
             <Switch>
 
                 <Route exact path="/" component={Home}/>
