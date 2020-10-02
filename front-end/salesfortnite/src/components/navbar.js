@@ -9,6 +9,8 @@ import { User } from './perfil/User';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import { abrirModal } from '../helpers/actions/uiActions';
 
+import {CountCart} from './Cart/CountCart'
+
 export const Navbar = () => {
     const dispatch = useDispatch();
     const state = useSelector(state => state.auth);
@@ -36,9 +38,14 @@ export const Navbar = () => {
                                 <NavLink className="nav-link " activeClassName="active" to="/">Inicio</NavLink>
                             </li>
                             <li className="nav-item dropdown">                               
-                                    <a className="nav-link  dropdown-toggle" href="/" data-toggle="dropdown">Productos</a>
-                                        <ul className="dropdown-menu">
-                                            
+                                    <a id="dropdownProductos" className="nav-link  dropdown-toggle" href="/" data-toggle="dropdown" 
+                                    onMouseEnter={()=>{
+                                        document.getElementById("dropdownProductos").click();
+                                    }}>Productos
+                                    </a>
+                                        <ul className="dropdown-menu"  onMouseLeave={()=>{
+                                        document.getElementById("dropdownProductos").click();}}>
+
                                             <li className="nav-item">
                                                 <a className="dropdown-item" href="/Playstation"> Playstation</a>
                                                 <a className="dropdown-item" href="/Xbox"> Xbox One</a>
@@ -55,9 +62,6 @@ export const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link " activeClassName="active" to="/Nosotros">Nosotros</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Contacto">Contacto</NavLink>
-                            </li>
 
                         </ul>
                         
@@ -68,7 +72,7 @@ export const Navbar = () => {
                         onClick={()=>{
                             dispatch(abrirModal())
                         }}
-                    ><AiOutlineShoppingCart /> (0)</button>
+                    ><AiOutlineShoppingCart /> <CountCart/></button>
                     {
                         <SideBar Component={ (state.email) ?  User : AuthComponent  } Name={(state.name) ?  state.name : '' } /> 
                     } 
