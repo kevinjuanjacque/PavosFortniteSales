@@ -12,6 +12,7 @@ import { ScreenProducto } from '../pages/ScreenProducto';
 import {useDispatch, useSelector} from 'react-redux'
 import { llenarCart } from '../helpers/actions/ActionCart';
 import { AdminScreen } from '../pages/AdminScreen';
+import { Category } from '../pages/Category';
 
 
 
@@ -33,6 +34,7 @@ export const Rutas = () => {
                 
                 <Route exact path="/" component={ (auth.name==="Kevin Jake") ?  AdminScreen : Home }/>
                 <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
+                <Route exact path="/:categoria" component={Category}/>
 
             
                 
