@@ -9,9 +9,12 @@ export const Home = () => {
         
         <>
             
-            <CarouselFotos/>
-            <ProductosDestacados/>
-            <NuevosProductos/>
+            <div >
+
+                <CarouselFotos/>
+                <ProductosDestacados/>
+                <NuevosProductos/>
+            </div>
 
             
         </>

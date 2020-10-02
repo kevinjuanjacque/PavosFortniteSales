@@ -9,8 +9,9 @@ import { Navbar } from '../components/navbar';
 import { ShoppingCart } from '../components/ShoppingCart';
 import { Home } from '../pages/Home';
 import { ScreenProducto } from '../pages/ScreenProducto';
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { llenarCart } from '../helpers/actions/ActionCart';
+import { AdminScreen } from '../pages/AdminScreen';
 
 
 
@@ -18,6 +19,8 @@ export const Rutas = () => {
     const dispatch = useDispatch();
     
         ( localStorage.getItem('Products') ) && dispatch(llenarCart( localStorage.getItem('Products') ) ) 
+
+    const auth = useSelector(state => state.auth)
     
     return (
         <Router>
@@ -27,8 +30,8 @@ export const Rutas = () => {
             <Navbar />
             <ShoppingCart  />
             <Switch>
-
-                <Route exact path="/" component={Home}/>
+                
+                <Route exact path="/" component={ (auth.name==="Kevin Jake") ?  AdminScreen : Home }/>
                 <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
 
             

@@ -36,5 +36,11 @@
 }
 .list-group-item {
   background-color: transparent;
+  cursor: pointer;
+}
+
+.separador{
+  height: 2px;
+  color: white;
 }
   
