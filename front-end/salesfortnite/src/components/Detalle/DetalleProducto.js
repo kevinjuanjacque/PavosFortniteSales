@@ -1,5 +1,4 @@
 import React from 'react';
-import './DescripcionProducto';
 import '../../Styles/imagenes.css';
 import '../home/productos-destacados.js';
 import { Similares } from '../Detalle/Similares.js';
