@@ -49,14 +49,14 @@ export const Navbar = () => {
                                         document.getElementById("dropdownProductos").click();}}>
 
                                             <li className="nav-item">
-                                                <a className="dropdown-item" href="/Playstation"> Playstation</a>
-                                                <a className="dropdown-item" href="/Xbox"> Xbox One</a>
-                                                <a className="dropdown-item" href="/Nintendo"> Nintendo</a>
-                                                <a className="dropdown-item" href="/Steam"> Steam</a>
-                                                <a className="dropdown-item" href="/Google"> Google</a>
-                                                <a className="dropdown-item" href="/Apple"> Apple</a>
-                                                <a className="dropdown-item" href="/Riot"> Riot</a>
-                                                <a className="dropdown-item" href="/Fortnite"> Fortnite</a>
+                                                <Link className="dropdown-item" to="/Playstation"> Playstation</Link>
+                                                <Link className="dropdown-item" to="/Xbox"> Xbox One</Link>
+                                                <Link className="dropdown-item" to="/Nintendo"> Nintendo</Link>
+                                                <Link className="dropdown-item" to="/Steam"> Steam</Link>
+                                                <Link className="dropdown-item" to="/Google"> Google</Link>
+                                                <Link className="dropdown-item" to="/Apple"> Apple</Link>
+                                                <Link className="dropdown-item" to="/Riot"> Riot</Link>
+                                                <Link className="dropdown-item" to="/Fortnite"> Fortnite</Link>
                                             </li>
                                         </ul>
                             </li>

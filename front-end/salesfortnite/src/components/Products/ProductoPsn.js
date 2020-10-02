@@ -7,7 +7,7 @@ export const ProductoPsn = () => {
             <br></br>
             
             <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
-                <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "200"/>
+                <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "170"/>
             </Link>
             <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
                         
