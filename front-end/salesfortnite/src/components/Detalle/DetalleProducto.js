@@ -6,6 +6,7 @@ import { Similares } from '../Detalle/Similares.js';
 import '../../Styles/enlaces.css';
 import '../../Styles/botones.css';
 import { Link } from 'react-router-dom';
+import { MdAddShoppingCart } from "react-icons/md";
 
 import {useDispatch} from 'react-redux';
 import { addCart } from '../../helpers/actions/ActionCart';
@@ -50,7 +51,7 @@ export const DetalleProducto= () => {
                                 <h1 className="card-title" >GIFT CARD 10 USD PSN</h1>  
                                 <h3>$7.990 </h3>
 
-                                <button  className="btn boton" onClick={AgregarProduct} >AÑADIR AL CARRITO</button>
+                                <button  className="btn boton" onClick={AgregarProduct} > <MdAddShoppingCart size="23px"/> AÑADIR AL CARRITO</button>
                                
                                 <p className="card-text"><small className="text-muted"><br/>Compatibilidad: PS5 · PS4 · PS3<br/>Región: EEUU<br/>Marca: PlayStation</small></p>
                                 

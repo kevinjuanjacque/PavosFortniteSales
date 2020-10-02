@@ -39,9 +39,15 @@ export const Navbar = () => {
                                 <NavLink className="nav-link " activeClassName="active" to="/"><AiOutlineHome size="18" /> Inicio</NavLink>
                             </li>
                             <li className="nav-item dropdown">                               
-                                    <a className="nav-link  dropdown-toggle  " href="/" data-toggle="dropdown"><AiOutlineShopping size="18"/> Productos</a>
-                                        <ul className="dropdown-menu ">
-                                            
+                                    
+                                    <a id="dropdownProductos" className="nav-link  dropdown-toggle" href="/" data-toggle="dropdown" 
+                                    onMouseEnter={()=>{
+                                        document.getElementById("dropdownProductos").click();
+                                    }}><AiOutlineShopping size="18"/> Productos
+                                    </a>
+                                        <ul className="dropdown-menu"  onMouseLeave={()=>{
+                                        document.getElementById("dropdownProductos").click();}}>
+
                                             <li className="nav-item">
                                                 <a className="dropdown-item" href="/Playstation"> Playstation</a>
                                                 <a className="dropdown-item" href="/Xbox"> Xbox One</a>
@@ -56,7 +62,7 @@ export const Navbar = () => {
                             </li>
                             
                             <li className="nav-item">
-                                <NavLink className="nav-link " activeClassName="active" to="/Nosotros"><BsPeople size="18"/> ¿Quienes Somos?</NavLink>
+                                <NavLink className="nav-link " activeClassName="active" to="/Nosotros"><BsPeople size="18"/> Nosotros</NavLink>
                             </li>
 
                         </ul>
