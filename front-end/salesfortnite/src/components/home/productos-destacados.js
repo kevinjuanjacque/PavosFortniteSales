@@ -8,7 +8,7 @@ export const ProductosDestacados = () => {
             <br></br>
             <h5>PRODUCTOS DESTACADOS</h5>
             <div className="separador" />
-                <div className="row row-cols" align="center" >
+                <div className="row row-cols-xl-6" align="center" >
                     
                     <ProductoPsn />
                     <ProductoPsn />

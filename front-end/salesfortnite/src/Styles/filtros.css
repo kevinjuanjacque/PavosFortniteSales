@@ -1,0 +1,14 @@
+div#filtroArbol{
+    float:left;
+    width:150px;
+    height:800px;
+    margin-top: 30px;
+    
+    background-color: transparent;
+}
+
+
+div#titulo{
+    background-color: rgba(41,24,116,1);
+    color: white;  
+}

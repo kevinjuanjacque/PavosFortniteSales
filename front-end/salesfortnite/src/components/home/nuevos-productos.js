@@ -10,7 +10,7 @@ export const NuevosProductos = () => {
             <h5>NUEVOS PRODUCTOS</h5>
             <div className="separador" />
 
-            <div className="row row-cols" align="center">
+            <div className="row row-cols-xl-6" align="center">
                     <ProductoPsn />
                     <ProductoPsn />
                     <ProductoPsn />
