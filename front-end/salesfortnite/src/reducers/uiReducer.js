@@ -1,12 +1,40 @@
+/*
+    {
+        state{
+            modal: bool,
+            sidebar: bool
+        }
+    }
+*/
 
-
-export const uiReducer=(state=false,action)=>{
+export const uiReducer=(state={
+    'modal': false,
+    'sidebar': false
+},action)=>{
     switch (action.type) {
         case 'modal-visible':
-            return true;
+            return {
+                ...state,
+                'modal':true
+            };
 
         case 'modal-invisible':
-            return false;
+            return {
+                ...state,
+                'modal':false
+            };
+        case 'sidebar-visible':
+            return {
+                ...state,
+                'sidebar':true
+            };
+        case 'sidebar-invisible':
+            return {
+                ...state,
+                'sidebar':false
+            };
+
+        
             
         default:
             return state;

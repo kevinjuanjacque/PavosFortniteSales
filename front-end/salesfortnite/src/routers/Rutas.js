@@ -11,8 +11,8 @@ import { Home } from '../pages/Home';
 import { ScreenProducto } from '../pages/ScreenProducto';
 import {useDispatch, useSelector} from 'react-redux'
 import { llenarCart } from '../helpers/actions/ActionCart';
-import { AdminScreen } from '../pages/AdminScreen';
 import { Category } from '../pages/Category';
+import { AdminRouter } from './AdminRouter';
 
 
 
@@ -32,9 +32,9 @@ export const Rutas = () => {
             <ShoppingCart  />
             <Switch>
                 
-                <Route exact path="/" component={ (auth.name==="Kevin Jake") ?  AdminScreen : Home }/>
+                <Route exact path="/" component={ (auth.name==="Kevin Jake") ?  AdminRouter : Home }/>
                 <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
-                <Route exact path="/:categoria" component={Category}/>
+                <Route exact path="/Categoria/:categoria" component={Category}/>
 
             
                 

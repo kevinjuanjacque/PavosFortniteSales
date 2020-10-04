@@ -3,8 +3,10 @@ import '../../../Styles/AdminVentas.css'
 
 export const Filtros = ( {Filtro, setFiltro}) => {
     const selectFiltro=(e)=>{
-        console.log(e.target.value);
+         
+        document.getElementById('Tipo').value='DEFAULT'
         setFiltro({'filtro':e.target.value});
+
     }
     const selectSubFiltro=(e)=>{
         setFiltro({
@@ -22,7 +24,7 @@ export const Filtros = ( {Filtro, setFiltro}) => {
     }
     return (
         <div className="container">
-            <form className="form-inline ">
+            <form className="form-inline mt-2">
             <div className="form-inline">
                 <label >Filtro </label>
                 <select className="ml-2 custom-select" defaultValue={'Fecha'} id="FILTRO" onChange={(e)=>{selectFiltro(e)}}>

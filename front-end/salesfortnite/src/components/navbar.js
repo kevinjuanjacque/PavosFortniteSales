@@ -49,14 +49,14 @@ export const Navbar = () => {
                                         document.getElementById("dropdownProductos").click();}}>
 
                                             <li className="nav-item">
-                                                <Link className="dropdown-item" to="/Playstation"> Playstation</Link>
-                                                <Link className="dropdown-item" to="/Xbox"> Xbox One</Link>
-                                                <Link className="dropdown-item" to="/Nintendo"> Nintendo</Link>
-                                                <Link className="dropdown-item" to="/Steam"> Steam</Link>
-                                                <Link className="dropdown-item" to="/Google"> Google</Link>
-                                                <Link className="dropdown-item" to="/Apple"> Apple</Link>
-                                                <Link className="dropdown-item" to="/Riot"> Riot</Link>
-                                                <Link className="dropdown-item" to="/Fortnite"> Fortnite</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Playstation"> Playstation</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Xbox"> Xbox One</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Nintendo"> Nintendo</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Steam"> Steam</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Google"> Google</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Apple"> Apple</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Riot"> Riot</Link>
+                                                <Link className="dropdown-item" to="/Categoria/Fortnite"> Fortnite</Link>
                                             </li>
                                         </ul>
                             </li>

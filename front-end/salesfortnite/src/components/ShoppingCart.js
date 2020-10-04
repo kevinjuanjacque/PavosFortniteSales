@@ -15,7 +15,7 @@ export const ShoppingCart = () => {
     return (
         
         <>
-            <div className={(ui) ? "modal fade show " : "modal" } id="exampleModal" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" >
+            <div className={(ui.modal) ? "modal fade show " : "modal" } id="exampleModal" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" >
                 <div className="modal-dialog "><div className="modal-content ">
                     <div className="modal-header"><h5 className="modal-title" id="exampleModalLabel"><BsCardChecklist size="30"/> Lista de compras</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close"
