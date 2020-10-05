@@ -9,7 +9,9 @@
 
 export const uiReducer=(state={
     'modal': false,
-    'sidebar': false
+    'sidebar': false,
+    'sidebarleft':true
+    
 },action)=>{
     switch (action.type) {
         case 'modal-visible':
@@ -34,7 +36,16 @@ export const uiReducer=(state={
                 'sidebar':false
             };
 
-        
+        case 'sidebarleft-visible':
+            return {
+                ...state,
+                'sidebarleft':true
+            };
+        case 'sidebarleft-invisible':
+            return {
+                ...state,
+                'sidebarleft':false
+            };
             
         default:
             return state;

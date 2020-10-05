@@ -1,8 +1,8 @@
 import React  from 'react';
-import '../Styles/sideBar.css'
+import '../../Styles/sideBar.css'
 import { BsReverseBackspaceReverse,BsPeopleCircle } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
-import { abrirSide, cerrarSide } from '../helpers/actions/uiActions';
+import { abrirSide, cerrarSide } from '../../helpers/actions/uiActions';
 
 
 export const SideBar = ({ Component, Name='' }) => {

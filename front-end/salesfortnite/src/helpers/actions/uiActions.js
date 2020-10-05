@@ -18,3 +18,14 @@ export const cerrarSide = () => {
         type:'sidebar-invisible'
     }
 }
+
+export const abrirSideLeft = () => {
+    return {
+        type:'sidebarleft-visible'
+    }
+}
+export const cerrarSideLeft = () => {
+    return {
+        type:'sidebarleft-invisible'
+    }
+}

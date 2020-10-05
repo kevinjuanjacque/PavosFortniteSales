@@ -9,15 +9,13 @@ export const Interacciones = () => {
         <div>
             <Visitas />
             <ComprasPorUser />
-            <div className="row mb-5 mt-2">
-                <div className="col">
+            <div className=" mb-5 mt-2">
                 <PagosMasUse />
 
-                </div>
-                <div className="col">
+                
                     
                 <PersonRegister />
-                </div>
+            
             </div>
         </div>
     )

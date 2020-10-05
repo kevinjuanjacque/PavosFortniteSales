@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../Styles/appbar.css';
-import { SideBar } from './SideBar';
+import { SideBar } from './SideBars/SideBar';
 import {useSelector,useDispatch} from 'react-redux';
 import { AuthComponent } from './login/AuthComponent';
 import { User } from './perfil/User';

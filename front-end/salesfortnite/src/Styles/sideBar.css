@@ -19,6 +19,25 @@
     right: 0;
     transition: 350ms;
   }
+
+  .nav-menu-left {
+    background-color: #f8f8f8;
+    width: 350px;
+    height: 100vh;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms;
+  }
+  
+  .nav-menu-left.active {
+    padding-top: 50px;
+    left: 0;
+    transition: 350ms;
+  }
+
+
   .navbar-toggle {
     background-color: #060b26;
     width: 100%;
