@@ -6,7 +6,7 @@ import { Visitas } from './FormularioProductos/InteraccionesComponent/Visitas';
 
 export const Interacciones = () => {
     return (
-        <div>
+        <div className="card">
             <Visitas />
             <ComprasPorUser />
             <div className=" mb-5 mt-2">
