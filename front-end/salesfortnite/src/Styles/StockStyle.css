@@ -1,0 +1,35 @@
+
+.critico{
+    background-color: red;
+    height: 25px;
+    width: 25px;
+    border-width: 1cm;
+    border: black;
+    text-align: center;
+    
+}
+.normal{
+    background-color: yellow;
+    height: 25px;
+    width: 25px;
+    border-width: 1cm;
+    border: black;
+    text-align: center;
+    
+}
+.superavit{
+    background-color: #29fd2e;
+    height: 25px;
+    width: 25px;
+    border-width: 1cm;
+    border: black;
+    text-align: center;
+    
+}
+.btnCenter{
+    margin-top: 34px;
+    margin-bottom: 20px;
+}
+.table{
+    background-color: white;
+}

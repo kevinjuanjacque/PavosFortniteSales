@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {AiOutlineInteraction, AiOutlineLogout} from 'react-icons/ai';
+import {AiOutlineInteraction, AiOutlineLogout,AiOutlineStock} from 'react-icons/ai';
 import {BsPencil} from 'react-icons/bs'
 import {FcSalesPerformance} from 'react-icons/fc'
 import { useDispatch } from 'react-redux';
@@ -18,21 +18,27 @@ export const ItemAdmin = ({history}) => {
         <>
             <ul className="list-group list-group-flush mt-2 m-2">
             <h5 className="text-white mt-2" > Administración </h5>                         
-            <li className="list-group-item list-group-item-primary list-group-item-action ">
-                <Link to="/" className="text-white">
-                    <FcSalesPerformance /> Ventas
-                </Link>
-            </li>
-            <li className="list-group-item list-group-item-primary list-group-item-action ">
-                <Link to="/Productos" className="text-white">
+            
+            <Link to="/"  className="list-group-item list-group-item-primary list-group-item-action text-white">
+                
+                <FcSalesPerformance /> Ventas
+                
+            </Link>
+            <Link to="/Productos"  className="list-group-item list-group-item-primary list-group-item-action text-white">
+                
                     <BsPencil /> Productos
-                </Link>
-            </li>
+                
+            </Link>
+            <Link to="/Productos/Stock"  className="list-group-item list-group-item-primary list-group-item-action text-white">
+                
+                    <AiOutlineStock /> Consultar Stock
+                
+            </Link>
                 
                 
                                     
             
-            <li className="list-group-item list-group-item-primary list-group-item-action text-white "><AiOutlineInteraction /> Actividad</li>
+            <Link to="/actividad" className="list-group-item list-group-item-primary list-group-item-action text-white "><AiOutlineInteraction /> Actividad</Link>
             <li onClick={clickLogOut} className="list-group-item list-group-item-primary list-group-item-action text-white"><AiOutlineLogout /> Cerrar sesión</li>
             <div className="separador" />
             </ul>

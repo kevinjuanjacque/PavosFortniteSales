@@ -30,15 +30,20 @@ export const Rutas = () => {
             
             <Navbar />
             <ShoppingCart  />
-            <Switch>
+            { (auth.name==="Kevin Jake") ?  
+                <AdminRouter /> 
+                :
+                (<Switch>
+                    
+                    <Route exact path="/" component={ Home }/>
+                    <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
+                    <Route exact path="/Categoria/:categoria" component={Category}/>
+    
                 
-                <Route exact path="/" component={ (auth.name==="Kevin Jake") ?  AdminRouter : Home }/>
-                <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
-                <Route exact path="/Categoria/:categoria" component={Category}/>
-
+                    
+                </Switch>)
+            }
             
-                
-            </Switch>
 
         </Router>
     )
