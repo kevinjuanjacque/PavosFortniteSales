@@ -13,7 +13,12 @@ import {useDispatch, useSelector} from 'react-redux'
 import { llenarCart } from '../helpers/actions/ActionCart';
 import { Category } from '../pages/Category';
 import { AdminRouter } from './AdminRouter';
+import { ClientScreen } from '../pages/ClientScreen';
 
+
+import { ClientScreen2 } from '../pages/ClientScreen2';
+import { MiPerfil } from '../pages/MiPerfil';
+import { SideBarLeft } from '../components/SideBars/SideBarLeft';
 
 
 export const Rutas = () => {
@@ -33,8 +38,18 @@ export const Rutas = () => {
             <Switch>
                 
                 <Route exact path="/" component={ (auth.name==="Kevin Jake") ?  AdminRouter : Home }/>
+
+                <Route exact path="/ClientScreen" component={  ClientScreen }/>
+                <Route exact path="/ClientScreen2" component={  ClientScreen2 }/>
+                <Route exact path="/MiPerfil" component={  MiPerfil }/>
+
+
+
                 <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
-                <Route exact path="/Categoria/:categoria" component={Category}/>
+                <Route exact path="/Categoria/:categoria" >
+                    <SideBarLeft/>
+                    <Category/>
+                </Route>
 
             
                 

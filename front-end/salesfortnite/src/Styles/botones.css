@@ -17,6 +17,25 @@
     
 }
 
+.botonSecundario {
+    
+    font-size:14px;
+    text-decoration: none;
+    background: rgb(107, 105, 107);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    
+}
+
+.botonSecundario:hover {
+    background: grey;
+    color: white;
+    text-decoration: none;
+    
+}
+
 /*
 .boton:active {
     background:rgb(104, 5, 79);
