@@ -19,6 +19,7 @@ import { ClientScreen } from '../pages/ClientScreen';
 import { ClientScreen2 } from '../pages/ClientScreen2';
 import { MiPerfil } from '../pages/MiPerfil';
 import { SideBarLeft } from '../components/SideBars/SideBarLeft';
+import { Nosotros } from '../pages/Nosotros';
 
 
 export const Rutas = () => {
@@ -50,6 +51,8 @@ export const Rutas = () => {
                     <SideBarLeft/>
                     <Category/>
                 </Route>
+                
+                <Route exact path="/Nosotros" component={  Nosotros }/>
 
             
                 
