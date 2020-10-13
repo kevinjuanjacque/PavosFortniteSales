@@ -4,7 +4,7 @@ const sequelize = new Sequelize('postgres://postgres:kevin123@localhost:5432/tes
     logging: false 
 });
 
-const Categoria = require('./CategiriaModel');
+const Categoria = require('./CategoriaModel');
 
 const Productos=sequelize.define('Productos',{
     NombreProducto:{
@@ -12,11 +12,11 @@ const Productos=sequelize.define('Productos',{
         allowNull:false
     },
     Price:{
-        type:DataTypes.NUMBER,
+        type:DataTypes.INTEGER,
         allowNull:false
     },
     Descuento:{
-        type:DataTypes.NUMBER,
+        type:DataTypes.INTEGER,
         allowNull:false,
         defaultValue:0
     },
@@ -27,11 +27,18 @@ const Productos=sequelize.define('Productos',{
     Descripcion:{
         type:DataTypes.STRING,
         allowNull:true
+    },
+    IdCategory:{
+        type:DataTypes.INTEGER,
+        references:{
+            model:Categoria,
+            key:'id'
+        }
     }
-})
-Productos.belongsTo(Categoria,{
-    onDelete:'CASCADE',
-    foreignKey:'IdCategoria'  
 });
+
+
+
 Productos.sync({ alter: true });
+
 module.exports=Productos;

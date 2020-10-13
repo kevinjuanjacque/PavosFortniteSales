@@ -1,10 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('postgres://postgres:kevin123@localhost:5432/testdb',{
-        dialect:'postgres',
-        logging: false 
-    });
-
-const ProductoNodel = require('./ProductosModel')
+    dialect:'postgres',
+    logging: false 
+});
 
 const Categoria = sequelize.define('Categoria',{
     'NombreCategoria':{
@@ -16,9 +14,7 @@ const Categoria = sequelize.define('Categoria',{
         type:DataTypes.STRING,
         allowNull:true
     }
-})
-
-
+});
 Categoria.sync({ alter: true });
 
 module.exports=Categoria;

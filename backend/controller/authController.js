@@ -25,7 +25,7 @@ AuthController.LogIn= async (req,res)=>{
           email:Email
         }
       });
-      
+
     if(usuario.length<=0){
         return res.status(400).json({
             error:'Usuario no existente'
@@ -33,7 +33,7 @@ AuthController.LogIn= async (req,res)=>{
     }
     if(Password!==usuario.password){
         return res.status(400).json({
-            error:'Contraseña invalida'
+            errors:'Contraseña invalida'
         })
     }
     res.status(200).json({
@@ -66,17 +66,19 @@ AuthController.LogIn= async (req,res)=>{
 
         const {Email,Password, Name, LastName} = req.body;
 
-        const NuevoUsuario = await User.create({email:Email,password:Password,NombreCompleto:Name+' '+LastName})
-
-        if(!NuevoUsuario.id){
-            return res.status(500).json({
-                error:'Ocurrio un error inseperado'
+        const NuevoUsuario = await User.create({email:Email,password:Password,NombreCompleto:Name+' '+LastName}).then(()=>{
+            res.json({
+                resp:'Ok',
+                body:'Usuario creado con existo'
             })
-        }
-        res.json({
-            resp:'Ok',
-            body:'Usuario creado con existo'
-        })
+
+        }).catch((err)=>{
+            return res.status(401).json({
+                errors:'Ocurrio un error al crear usuario',
+                body:err
+            })
+
+        });
 
     }
     

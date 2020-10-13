@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
-const routerAuth = require('./Router/router');
+const routerAuth = require('./Router/routerAuth');
 const morgan = require('morgan');
 const sequelize= require('./DataBase/DataBase');
+const routerCategory = require('./Router/routerCategory');
+const routerProduct = require('./Router/routerProduct');
 
 app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/api/auth/',routerAuth);
+app.use('/api/category/',routerCategory);
+app.use('/api/product/',routerProduct);
 
 
 
