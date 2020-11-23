@@ -4,15 +4,18 @@
 
 const {Router}=require('express');
 const routerCategory=Router();
-const { body } = require('express-validator');
 
 const categoryController = require('../controller/categoryController');
 
+//mostrar categorias
 
-routerCategory.get('/',categoryController.ShowCategory);
-routerCategory.post('/AddCategoria',[
-    body('Nombre').notEmpty(),
-],categoryController.AddCategory);
+//eliminar categoria
+
+//agregar categoria
+
+
+
+
 
 
 module.exports=routerCategory;
