@@ -4,6 +4,9 @@ const bd = require('../DataBase/DataBase');
 const {  validationResult } = require('express-validator');
 
 
+
+
+
 /*
     {
         Eamil:,
@@ -11,6 +14,35 @@ const {  validationResult } = require('express-validator');
     }
 */
 
+AuthController.IniciarSesion = async (req, res) => {
+
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        res.status(400).json({
+            resp:'error en la request',
+            body:errors.array()
+        })
+    }
+
+    const { email, contrasena } = req.body;
+
+    const usuario = await bd.query(`SELECT * FROM Usuario WHERE email = ${email} and contrasena = ${contrasena}`);
+
+    if(usuario){
+        res.status(200).json({
+            resp:'Ok',
+            body:'Sesión iniciada correctamente' 
+         });
+    }else{
+        res.status(401).json({
+            resp:'Error',
+            body:'Autenticación erronea'
+        }); 
+    }
+
+
+}
 
 
 /*

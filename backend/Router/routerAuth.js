@@ -11,7 +11,12 @@ const AuthController = require('../controller/authController');
 
 //Login
 
-
+routerAuth.post('/login'),
+[
+    body('email').notEmpty(),
+    body('contrasena').isLength({min:5})
+]
+,AuthController.
 
 
 //Register
