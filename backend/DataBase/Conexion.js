@@ -1,6 +1,6 @@
 module.exports = {
     host: "localhost",
     user: "postgres",
-    password: "postgres",
-    database: "template1"
+    password: "qwerty123",
+    database: "digstore"
   };

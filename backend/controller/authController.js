@@ -72,7 +72,7 @@ AuthController.registrarUsuario = async (req,res)=>{
     await bd.query(`insert into Usuario values(3,'${name} ${apellido}', '${password}','${email}')`).then(()=>{
         res.status(200).json({
            resp:'ok',
-           body:'usuario creaDO CON EXITO' 
+           body:'usuario creado con exito' 
         });
     }).catch((err)=>{
         console.log(err);
