@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const cors = require('cors');
 
 
 const routerAuth = require('./Router/routerAuth');
@@ -17,6 +18,7 @@ BD.connect().then(()=>{
 
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/auth/',routerAuth);
 app.use('/api/category/',routerCategory);

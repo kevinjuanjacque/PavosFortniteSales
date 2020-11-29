@@ -7,8 +7,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import {useDispatch} from 'react-redux';
 import { addCart } from '../../helpers/actions/ActionCart'; 
 
-export const InProductoPsn = () => {
-
+export const InProductoPsn = ({nombre_producto, precio_unitario}) => {
     const dispatch = useDispatch()
     const AgregarProduct = ()=>{
         const id= new Date().getTime();
@@ -23,7 +22,7 @@ export const InProductoPsn = () => {
             <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
                 <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "170"/>
             </Link>
-            <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
+                <p>{nombre_producto} <br/><strong>{ precio_unitario}</strong></p> 
             <button  className="btn boton" onClick={AgregarProduct}  > <MdAddShoppingCart size="19px"/> AGREGAR</button>        
         </div>
     )

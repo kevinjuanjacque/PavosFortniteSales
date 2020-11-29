@@ -49,6 +49,7 @@ export const Navbar = () => {
                                         document.getElementById("dropdownProductos").click();}}>
 
                                             <li className="nav-item">
+                                               
                                                 <Link className="dropdown-item" to="/Categoria/Playstation"> Playstation</Link>
                                                 <Link className="dropdown-item" to="/Categoria/Xbox"> Xbox One</Link>
                                                 <Link className="dropdown-item" to="/Categoria/Nintendo"> Nintendo</Link>
