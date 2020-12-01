@@ -1,7 +1,7 @@
 
 const ProductController={}
 const bd = require('../DataBase/DataBase');
-const { param,  validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 
 
 

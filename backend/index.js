@@ -23,6 +23,7 @@ app.use(cors());
 app.use('/api/auth/',routerAuth);
 app.use('/api/category/',routerCategory);
 app.use('/api/product/',routerProduct);
+app.use('/api/visit/',routerVisit);
 
 
 

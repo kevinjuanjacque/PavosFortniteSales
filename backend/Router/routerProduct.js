@@ -7,7 +7,6 @@ const routerProduct=Router();
 const { body } = require('express-validator');
 
 const ProductController = require('../controller/productController');
-const routerAuth = require('./routerAuth');
 
 
 
