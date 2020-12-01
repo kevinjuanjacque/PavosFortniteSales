@@ -50,6 +50,11 @@ routerProduct.put('/actualizar',
 ],ProductController.ActualizarProducto);
 
 //buscar producto
+routerProduct.get('/buscar',
+[
+    body('idProducto').isInt()
+],ProductController.BuscarProducto);
+
 
 //retornar todos los productos
 routerProduct.get('/', ProductController.RetornarTodoProducto);

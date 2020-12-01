@@ -142,6 +142,27 @@ ProductController.ActualizarProducto = async (req, res) => {
 */
 
 
+
+ProductController.BuscarProducto = async (req, res) => {
+
+    const { idProducto } = req.body;
+    await bd.query(`SELECT * FROM Producto WHERE id_producto = ${idProducto};`)
+        .then((resp) => {
+            res.json({
+                resp: 'ok',
+                body: resp.rows
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+}
+
+
 //RETORNAR TODOS LOS PRODUCTOS
 /* 
     {
