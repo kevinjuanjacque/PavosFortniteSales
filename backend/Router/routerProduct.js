@@ -48,11 +48,17 @@ routerProduct.put('/actualizar',
     body('costo').isInt()   
 ],ProductController.ActualizarProducto);
 
-//buscar producto
-routerProduct.get('/buscar',
+//buscar producto por id
+routerProduct.get('/buscar-por-id',
 [
     body('idProducto').isInt()
-],ProductController.BuscarProducto);
+],ProductController.BuscarProductoPorId);
+
+//buscar producto por nombre
+routerProduct.get('/buscar',
+[
+    body('nombreProducto').isString()
+],ProductController.BuscarProductoPorNombre);
 
 
 //retornar todos los productos

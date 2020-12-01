@@ -134,7 +134,7 @@ ProductController.ActualizarProducto = async (req, res) => {
         });
 }
 
-//BUSCAR PRODUCTO
+//BUSCAR PRODUCTO POR ID
 /* 
     {
 
@@ -143,7 +143,7 @@ ProductController.ActualizarProducto = async (req, res) => {
 
 
 
-ProductController.BuscarProducto = async (req, res) => {
+ProductController.BuscarProductoPorId = async (req, res) => {
 
     const errors = validationResult(req);
 
@@ -170,6 +170,46 @@ ProductController.BuscarProducto = async (req, res) => {
             });
         });
 }
+
+//BUSCAR PRODUCTO POR NOMBRE
+/* 
+    {
+        "nombreProducto": " "
+    }
+*/
+
+
+ProductController.BuscarProductoPorNombre = async (req, res) => {
+
+    
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        res.status(400).json({
+            resp: 'error en la request',
+            body: errors.array()
+        })
+    }
+
+    const { nombreProducto } = req.body;
+    //const regex = new RegExp(nombreProducto, 'i');
+
+    await bd.query(`SELECT * FROM Producto WHERE nombre_producto iLike '%${nombreProducto}%';`)
+        .then((resp) => {
+            res.json({
+                resp: 'ok',
+                body: resp.rows
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+}
+
 
 
 //RETORNAR TODOS LOS PRODUCTOS
