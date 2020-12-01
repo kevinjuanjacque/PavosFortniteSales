@@ -5,13 +5,39 @@
 const {Router}=require('express');
 const routerCategory=Router();
 
-const categoryController = require('../controller/categoryController');
+const { body } = require('express-validator');
 
-//mostrar categorias
-
-//eliminar categoria
+const CategoryController = require('../controller/categoryController');
 
 //agregar categoria
+
+routerCategory.post('/agregar',
+[
+    body('nombre').isString(),
+    body('descripcion').isString() 
+],CategoryController.AgregarCategoria);
+
+//modificar categoria
+
+routerCategory.put('/modificar',
+[
+    body('idCategoria').isInt(),
+    body('nombre').isString(),
+    body('descripcion').isString() 
+],CategoryController.ModificarCategoria);
+
+//eliminar categoria
+routerCategory.delete('/eliminar',
+[
+    body('idCategoria').isInt()
+],CategoryController.EliminarCategoria);
+
+
+//mostrar categorias
+routerCategory.get('/', CategoryController.RetornarTodoCategoria);
+
+
+
 
 
 
