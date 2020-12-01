@@ -40,7 +40,7 @@ export const AddProduct = () => {
                     </select>
                 </div>
                 <div className="col">
-                    <label htmlFor="subCategoria"> Elegir sub-categoria</label>
+                    <label htmlFor="subCategoria"> Elegir tipo de producto</label>
                     <select className="form-control" 
                         value={Form.SubCategoria} 
                         required 
@@ -55,24 +55,38 @@ export const AddProduct = () => {
                 </div>
             </div>
 
-            <div className="row mt-2">
+            <div className="row mt-3">
+
                 <div className="col">
-                    <label htmlFor="Price">Precio unitario</label>
+                    <label htmlFor="Cost">Costo</label>
                     <input type="text" 
                         className="form-control" 
-                        placeholder="$000000" 
-                        id="Price" 
+                        placeholder="$0" 
+                        id="Cost" 
                         value={Form.Price}
                         onChange={(e)=>{setForm({...Form,Price:e.target.value})}} 
                     />
                 </div>
                 <div className="col">
+                    <label htmlFor="Price">Precio unitario</label>
+                    <input type="text" 
+                        className="form-control" 
+                        placeholder="$0" 
+                        id="Price" 
+                        value={Form.Price}
+                        onChange={(e)=>{setForm({...Form,Price:e.target.value})}} 
+                    />
+                </div>
+
+
+
+                <div className="col">
                     <div className="form-group">
-                        <label htmlFor="stcok">Stock</label>
+                        <label htmlFor="stock">Stock</label>
                         <input 
                             type="number" 
                             className="form-control" 
-                            id="stcok" 
+                            id="stock" 
                             placeholder="00"
                             value={Form.Stock}
                             onChange={(e)=>{setForm({...Form,Stock:e.target.value})}} 

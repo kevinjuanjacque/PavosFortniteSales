@@ -36,7 +36,7 @@ export const Rutas = () => {
             
             <Navbar />
             <ShoppingCart  />
-            { (auth.name==="Kevin Jake") ?  
+            { (auth.name==="Kevin Jake" || auth.name==="IGNACIO FAJARDO") ?  
                 <AdminRouter /> 
                 :
                 (<Switch>
