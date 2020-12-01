@@ -7,6 +7,7 @@ const cors = require('cors');
 const routerAuth = require('./Router/routerAuth');
 const routerCategory = require('./Router/routerCategory');
 const routerProduct = require('./Router/routerProduct');
+const routerVisit = require('./Router/routerVisit');
 
 const BD = require('./DataBase/DataBase');
 

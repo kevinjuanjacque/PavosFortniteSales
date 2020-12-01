@@ -145,6 +145,15 @@ ProductController.ActualizarProducto = async (req, res) => {
 
 ProductController.BuscarProducto = async (req, res) => {
 
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        res.status(400).json({
+            resp: 'error en la request',
+            body: errors.array()
+        })
+    }
+
     const { idProducto } = req.body;
     await bd.query(`SELECT * FROM Producto WHERE id_producto = ${idProducto};`)
         .then((resp) => {
