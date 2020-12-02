@@ -193,11 +193,6 @@ ProductController.BuscarProductoPorNombre = async (req, res) => {
 
 
 //RETORNAR TODOS LOS PRODUCTOS
-/* 
-    {
-
-    }
-*/
 
 ProductController.RetornarTodoProducto = async (req, res) => {
 
@@ -220,6 +215,30 @@ ProductController.RetornarTodoProducto = async (req, res) => {
             });
         });
         
+}
+
+//PRODUCTOS DESTACADOS
+
+ProductController.RetornarProductoDestacado = async (req, res) => {
+    //Muestra los 6 productos mas vendidos.
+    await bd.query(`
+        SELECT d.id_producto, p.nombre_producto, COUNT(d.id_producto) as cantidad,  p.precio_unitario 
+        FROM DetalleVenta d JOIN Producto p on (d.id_producto = p.id_producto) 
+        GROUP BY d.id_producto, p.nombre_producto, p.precio_unitario order by cantidad desc limit 6;`)
+        .then((resp) => {
+            res.json({
+                resp: 'ok',
+                body: resp.rows
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+
 }
 
 

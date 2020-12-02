@@ -58,5 +58,8 @@ routerProduct.get('/:nombreProducto',ProductController.BuscarProductoPorNombre);
 //retornar todos los productos
 routerProduct.get('/categoria/:nombreCategoria', ProductController.RetornarTodoProducto);
 
+//retornar productos destacados
+routerProduct.get('/', ProductController.RetornarProductoDestacado);
+
 
 module.exports=routerProduct;
