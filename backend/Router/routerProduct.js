@@ -56,7 +56,7 @@ routerProduct.get('/:nombreProducto',ProductController.BuscarProductoPorNombre);
 
 
 //retornar todos los productos
-routerProduct.get('/', ProductController.RetornarTodoProducto);
+routerProduct.get('/categoria/:nombreCategoria', ProductController.RetornarTodoProducto);
 
 
 module.exports=routerProduct;

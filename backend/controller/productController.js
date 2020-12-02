@@ -201,7 +201,11 @@ ProductController.BuscarProductoPorNombre = async (req, res) => {
 
 ProductController.RetornarTodoProducto = async (req, res) => {
 
-    await bd.query(`SELECT * FROM Producto;`)
+    const { nombreCategoria } = req.params;
+    id = await bd.query(`SELECT id_categoria FROM Categoria WHERE nombre iLike '${nombreCategoria}%'`).then((res)=>res.rows);
+    idCategoria = id[0]["id_categoria"];
+    
+    await bd.query(`SELECT * FROM Producto WHERE id_categoria=${idCategoria}`)
         .then((resp) => {
             res.json({
                 resp: 'ok',
@@ -215,6 +219,7 @@ ProductController.RetornarTodoProducto = async (req, res) => {
                 body: err
             });
         });
+        
 }
 
 
