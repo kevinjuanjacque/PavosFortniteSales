@@ -1,6 +1,7 @@
 const VisitController={}
 const bd = require('../DataBase/DataBase');
 const { validationResult } = require('express-validator');
+const { DecodificarToken } = require('../helpers/jwt');
 
 //Agregar Visita
 /* 
@@ -20,8 +21,11 @@ VisitController.AgregarVisita = async (req, res) => {
         })
     }
 
-    const { idUsuario, aliasUrl } = req.body;
-
+    //const { token, aliasUrl } = req.body;
+    const { token } = req.body;
+    const idUsuario = await DecodificarToken(token).then((res)=>res.id);
+    const aliasUrl = window.location.pathname;
+    
     await bd.query(`INSERT INTO Visita(id_usuario, alias_url) VALUES(${idUsuario},'${aliasUrl}')`)
         .then(() => {
             res.status(200).json({

@@ -12,8 +12,7 @@ const VisitController = require('../controller/visitController');
 
 routerVisit.post('/agregar', 
 [
-    body('idUsuario').isInt(),
-    body('aliasUrl').isString()
+    body('idUsuario').notEmpty()
 ], VisitController.AgregarVisita);
 
 module.exports=routerVisit;
