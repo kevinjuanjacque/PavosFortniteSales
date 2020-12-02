@@ -28,9 +28,9 @@ AuthController.IniciarSesion = async (req, res) => {
 
     const { email, contrasena } = req.body;
 
-    const usuario = await bd.query(`SELECT * FROM Usuario WHERE email = ${email} and contrasena = ${contrasena}`);
-    
-    GeneradorToken(usuario.id,usuario.nombre_completo)
+    const usuario = await bd.query(`SELECT * FROM Usuario WHERE email = '${email}' and contrasena = '${contrasena}'`);
+    console.log(usuario);
+    await GeneradorToken(usuario.id,usuario.nombre_completo)
     .then((res)=>{
         console.log(res);
     })
