@@ -28,17 +28,18 @@ AuthController.IniciarSesion = async (req, res) => {
 
     const { email, contrasena } = req.body;
 
-    const usuario = await bd.query(`SELECT * FROM Usuario WHERE email = '${email}' and contrasena = '${contrasena}'`);
-    console.log(usuario);
-    await GeneradorToken(usuario.id,usuario.nombre_completo)
-    .then((res)=>{
-        console.log(res);
-    })
-
+    const {rows} = await bd.query(`SELECT * FROM Usuario WHERE email = '${email}' and contrasena = '${contrasena}'`);
+    const usuario=rows[0];
+   
+    
+ 
     if(usuario){
         res.status(200).json({
             resp:'Ok',
-            body:'Sesión iniciada correctamente' 
+            body:{
+                res:'Sesión iniciada correctamente',
+                token: await GeneradorToken(usuario.id,usuario.nombre_completo)
+             }
          });
     }else{
         res.status(401).json({
