@@ -9,7 +9,8 @@ const { DecodificarToken } = require('../helpers/jwt');
 /* 
     {
         "token": ,
-        "estadoEntrega":   
+        "products":[{id: 1, cant: 10}]",
+        "total"
     }
 */
 
@@ -22,96 +23,28 @@ SaleController.AgregarVenta = async (req, res) => {
             body: errors.array()
         })
     }
+    
+    const {token,products,total} = req.body;
 
-    const { token, estadoEntrega } = req.body;
-    await DecodificarToken(token)
-    .then((resp)=>{
-        console.log(resp);
+    const id = await DecodificarToken(token).then((res)=>res.id);
+    const idVenta =  parseInt(new Date().getTime() +  id);
+    
+
+    await bd.query(`INSERT INTO Venta VALUES(${idVenta},${id},${total})`).catch((err)=>{console.log('error')});
+
+    products.forEach(async (p)=>{
+        await bd.query(`INSERT INTO DetalleVenta (id_venta,id_producto,cantidad) VALUES( ${idVenta},${p.id},${p.cantidad} );`);
+    });
+
+    res.json({
+        resp:'ok',
+        body:'Venta creada con exito'
     })
-    /*
-    IMPORTANTE! deberia haber una funcion que cambie el estadoEntrega, no hacerlo manual.
-    */
-
-    /*
-    await bd.query(
-        `insert into Venta(id_usuario, estado_entrega) 
-        values(${token},${estadoEntrega})`)
-        .then(() => {
-            res.status(200).json({
-                resp: 'ok',
-                body: 'Venta agregada con exito'
-
-            });
-        }).catch((err) => {
-            console.log(err);
-            res.status(400).json({
-                resp: 'Error en la bd',
-                body: err
-            });
-        });
-    */
-}
-
-//DetalleVenta
-
-SaleController.AgregarDetalleVenta = async (req, res) => {
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        res.status(400).json({
-            resp: 'error en la request',
-            body: errors.array()
-        })
-    }
-
-    const { idVenta, idProducto, cantidad } = req.body;
-
-    await bd.query(
-        `insert into DetalleVenta(id_venta, id_producto, cantidad) 
-        values(${idVenta},${idProducto}, ${cantidad})`)
-        .then(() => {
-            res.status(200).json({
-                resp: 'ok',
-                body: 'Detalle de venta agregado con exito'
-
-            });
-        }).catch((err) => {
-            console.log(err);
-            res.status(400).json({
-                resp: 'Error en la bd',
-                body: err
-            });
-        });
-
-}
 
 
-SaleController.CalcularTotalVenta = async (req, res) => {
-    const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
-        res.status(400).json({
-            resp: 'error en la request',
-            body: errors.array()
-        })
-    }
 
-    const { idVenta, idProducto, cantidad } = req.body;
 
-    await bd.query(`SELECT `)
-        .then(() => {
-            res.status(200).json({
-                resp: 'ok',
-                body: 'Detalle de venta agregado con exito'
-
-            });
-        }).catch((err) => {
-            console.log(err);
-            res.status(400).json({
-                resp: 'Error en la bd',
-                body: err
-            });
-        });
 
 }
 

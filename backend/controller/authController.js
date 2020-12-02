@@ -31,14 +31,13 @@ AuthController.IniciarSesion = async (req, res) => {
     const {rows} = await bd.query(`SELECT * FROM Usuario WHERE email = '${email}' and contrasena = '${contrasena}'`);
     const usuario=rows[0];
    
-    
- 
+
     if(usuario){
         res.status(200).json({
             resp:'Ok',
             body:{
                 res:'Sesión iniciada correctamente',
-                token: await GeneradorToken(usuario.id,usuario.nombre_completo)
+                token: await GeneradorToken(usuario.id_usuario,usuario.nombre_completo)
              }
          });
     }else{
