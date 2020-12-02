@@ -11,7 +11,6 @@ const SaleController = require('../controller/saleController');
 //agregar venta
 routerSale.post('/agregar-venta',
 [
-    body('idUsuario').isInt(),
     body('estadoEntrega').isBoolean()  
 ],SaleController.AgregarVenta);
 

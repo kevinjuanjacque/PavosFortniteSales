@@ -145,16 +145,7 @@ ProductController.ActualizarProducto = async (req, res) => {
 
 ProductController.BuscarProductoPorId = async (req, res) => {
 
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        res.status(400).json({
-            resp: 'error en la request',
-            body: errors.array()
-        })
-    }
-
-    const { idProducto } = req.body;
+    const { idProducto } = req.params;
     await bd.query(`SELECT * FROM Producto WHERE id_producto = ${idProducto};`)
         .then((resp) => {
             res.json({
@@ -181,19 +172,8 @@ ProductController.BuscarProductoPorId = async (req, res) => {
 
 ProductController.BuscarProductoPorNombre = async (req, res) => {
 
-    
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        res.status(400).json({
-            resp: 'error en la request',
-            body: errors.array()
-        })
-    }
-
-    const { nombreProducto } = req.body;
+    const { nombreProducto } = req.params;
     //const regex = new RegExp(nombreProducto, 'i');
-
     await bd.query(`SELECT * FROM Producto WHERE nombre_producto iLike '%${nombreProducto}%';`)
         .then((resp) => {
             res.json({

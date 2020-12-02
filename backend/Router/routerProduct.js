@@ -49,16 +49,10 @@ routerProduct.put('/actualizar',
 ],ProductController.ActualizarProducto);
 
 //buscar producto por id
-routerProduct.get('/buscar-por-id',
-[
-    body('idProducto').isInt()
-],ProductController.BuscarProductoPorId);
+routerProduct.get('/por-id/:idProducto',ProductController.BuscarProductoPorId);
 
 //buscar producto por nombre
-routerProduct.get('/buscar',
-[
-    body('nombreProducto').isString()
-],ProductController.BuscarProductoPorNombre);
+routerProduct.get('/:nombreProducto',ProductController.BuscarProductoPorNombre);
 
 
 //retornar todos los productos
