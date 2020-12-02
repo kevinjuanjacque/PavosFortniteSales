@@ -8,6 +8,7 @@ const routerAuth = require('./Router/routerAuth');
 const routerCategory = require('./Router/routerCategory');
 const routerProduct = require('./Router/routerProduct');
 const routerVisit = require('./Router/routerVisit');
+const routerSale = require('./Router/routerSale');
 
 const BD = require('./DataBase/DataBase');
 
@@ -25,7 +26,7 @@ app.use('/api/auth/',routerAuth);
 app.use('/api/category/',routerCategory);
 app.use('/api/product/',routerProduct);
 app.use('/api/visit/',routerVisit);
-
+app.use('/api/sale/',routerSale);
 
 
 app.listen('4000',()=>{
