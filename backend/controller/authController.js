@@ -2,6 +2,7 @@ const AuthController={};
 const bd = require('../DataBase/DataBase');
 
 const {  validationResult } = require('express-validator');
+const { GeneradorToken } = require('../helpers/jwt');
 
 
 
@@ -28,6 +29,11 @@ AuthController.IniciarSesion = async (req, res) => {
     const { email, contrasena } = req.body;
 
     const usuario = await bd.query(`SELECT * FROM Usuario WHERE email = ${email} and contrasena = ${contrasena}`);
+    
+    GeneradorToken(usuario.id,usuario.nombre_completo)
+    .then((res)=>{
+        console.log(res);
+    })
 
     if(usuario){
         res.status(200).json({
