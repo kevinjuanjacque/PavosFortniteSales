@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
 
-export const AddVisit = () => {
+export const AddVisit = (url) => {
     
     const [Visit, setVisit] = useState({
         loading:true,
         data:''
     });   
-
+    
     useEffect(() => {
+        const token=localStorage.getItem('token');
+        console.log(token)
+        const  myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
         fetch( 'http://localhost:4000/api/visit/agregar', {
-            method: 'POST'
+            method: 'POST',
+            headers:myHeaders,
+            body:(token) ? JSON.stringify({ "token":token,"url":url }) : JSON.stringify({ url:url }),
         })
         .then((res)=>{
             return res.json();
@@ -25,7 +31,7 @@ export const AddVisit = () => {
                 data:'Error'
             });
         });
-    }, []);
+    }, [url]);
 
     return Visit;
 }

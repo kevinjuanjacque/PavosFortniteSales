@@ -59,29 +59,20 @@ ProductController.AgregarProducto = async (req, res) => {
 */
 
 ProductController.EliminarProducto = async (req, res) => {
-    const errors = validationResult(req);
+    
 
-    if(!errors.isEmpty()){
-        res.status(400).json({
-            resp:'error en la request',
-            body:errors.array()
-        })
-    }
-
-    const { idProducto } = req.body;
-
+    const { id } = req.params;
     await bd.query(
-        `DELETE FROM Producto WHERE id_producto=${idProducto}`).then(()=>{
+        `DELETE FROM Producto WHERE id_producto=${id}`).then(()=>{
         res.status(200).json({
            resp:'ok',
            body:'Producto eliminado con exito'
             
         });
     }).catch((err)=>{
-        console.log(err);
         res.status(400).json({
             resp:'Error en la bd',
-            body:err
+            body: 'Error al intentar eliminar el producto'
         });
     });
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {useParams} from "react-router-dom";
 import { InProductoPsn } from '../components/Products/InProductoPsn';
+import { AddVisit } from '../helpers/function/AddVisit';
 import { GetProduct } from '../helpers/function/GetProduct';
 import '../Styles/filtros.css';
 
@@ -9,7 +10,7 @@ export const Category = () => {
     const { categoria }=useParams();
     const data = GetProduct(categoria);
 
-
+    AddVisit(window.location.pathname);
 
     return (
         <>

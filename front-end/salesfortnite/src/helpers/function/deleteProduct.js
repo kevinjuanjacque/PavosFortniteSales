@@ -2,22 +2,20 @@
 
 export const deleteProduct = (id) => {
 
-
-    const raw = JSON.stringify({"idProducto":id });
+    console.log(id);
 
     return new Promise ((resolve,reject)=>{
-        fetch( `http://localhost:4000/api/product/eliminar`, {
-            method: 'POST',
-            body: raw,
-            redirect: 'follow'
+        fetch( `http://localhost:4000/api/product/eliminar/${id}`, {
+            method: 'DELETE',
         }).then((res)=>{
             return res.json();
         })
         .then((resultado)=>{
+            console.log(resultado.body)
             resolve(resultado.body);
         }).catch(()=>{
-
-            reject('Error de auth');
+            
+            reject('Error de consulta');
         });
     });
 

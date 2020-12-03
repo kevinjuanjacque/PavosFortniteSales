@@ -1,6 +1,9 @@
 import React from 'react'
+import { GetVisita } from '../../../../helpers/function/GetVisitas'
 
 export const Visitas = () => {
+
+    const visitas = GetVisita();
     return (
         <div className="container mt-5">
             <h1>VISITAS</h1>
@@ -14,18 +17,14 @@ export const Visitas = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>/Playstation</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>/Playstation/DetalleProducto</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>/</td>
-                            <td>50</td>
-                        </tr>
+                        {(!visitas.loading) &&
+                            (visitas.data.map(v=>{
+                                return (<tr>
+                                <td>{v.alias_url}</td>
+                                <td>{v.cant}</td>
+                            </tr>)
+                            }))
+                        }
                     </tbody>
                 </table>
             </div>

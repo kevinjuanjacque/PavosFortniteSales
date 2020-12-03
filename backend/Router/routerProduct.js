@@ -27,10 +27,7 @@ routerProduct.post('/agregar',
 
 
 //eliminar producto
-routerProduct.delete('/eliminar',
-[
-    body('idProducto').isInt()
-],ProductController.EliminarProducto);
+routerProduct.delete('/eliminar/:id',ProductController.EliminarProducto);
 
 //actualizar producto
 

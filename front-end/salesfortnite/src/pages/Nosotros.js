@@ -1,5 +1,7 @@
 import React from 'react'
+import { AddVisit } from '../helpers/function/AddVisit';
 export const Nosotros = () => {
+    AddVisit(window.location.pathname);
     return (
         <div align="center">
             <div className="container mt-3 row row-cols-10">

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {BsTrash} from 'react-icons/bs';
 import { AllProduct } from '../../../helpers/function/AllProduct';
 import { deleteProduct } from '../../../helpers/function/deleteProduct';
 
 export const RemoveProduct = () => {
-    const products = AllProduct();
+
+    const [delet,setDelete] = useState([]);
+    var products = AllProduct();
     const changeBuscar =(e)=>{
         products.data=products.data.filter( p => p.nombre_producto.indexOf(e.target.value) > -1 );
     }
@@ -41,13 +43,20 @@ export const RemoveProduct = () => {
                     {
                         (!products.loading) && (
                             products.data.map((p)=>{
-                                return (<tr key={p.id_producto}>
-                                <th scope="row">{p.id_producto}</th>
-                                <td>{p.nombre_producto}</td>
-                                <td>${p.precio_unitario}</td>
-                                <td><button onClick={()=>{ deleteProduct(p.id_producto).then(()=>window.alert('producto eliminado con exito')).catch(()=>window.alert('Ocurrrio un error')) }} className="btn ColorBotones"> <BsTrash color="white" /> </button></td>
-                            </tr>)
-                            })
+                                if(   delet.indexOf(d=>d.id_producto===p.id_producto) > -1 ) 
+                                {
+                                    return ''
+                                }
+                                    return (<tr key={p.id_producto}>
+                                    <th scope="row">{p.id_producto}</th>
+                                    <td>{p.nombre_producto}</td>
+                                    <td>${p.precio_unitario}</td>
+                                    <td><button onClick={()=>{ 
+                                        deleteProduct(p.id_producto).then((res)=>window.alert(res)).catch(()=>window.alert('Ocurrrio un error'));
+                                        setDelete([...delet,p]);
+                                    }} className="btn ColorBotones"> <BsTrash color="white" /> </button></td>
+                                </tr>)
+                                })
                         )
                     }
                     

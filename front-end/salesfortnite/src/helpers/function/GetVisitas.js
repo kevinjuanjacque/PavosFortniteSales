@@ -1,30 +1,30 @@
 import { useEffect, useState } from 'react';
 
-export const GetProductDestacados = () => {
-    const [Products, setProducts] = useState({
+export const GetVisita= () => {
+    const [Visita, setVisita] = useState({
         loading:true,
         data:[]
     });    
-    
+   
     useEffect(() => {
-        fetch( `http://localhost:4000/api/product`, {
+        fetch( `http://localhost:4000/api/visit/`, {
             method:'GET'
         })
         .then((res)=>{
             return res.json();
         })
         .then((resultado)=>{
-            setProducts({
+            setVisita({
                 loading:false,
                 data:resultado.body
             });
         }).catch((err)=>{
-            setProducts({
+            setVisita({
                 loading:false,
                 data:'Error'
             });
         });
     }, []);
 
-    return Products;
+    return Visita;
 }

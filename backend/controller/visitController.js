@@ -6,27 +6,21 @@ const { DecodificarToken } = require('../helpers/jwt');
 //Agregar Visita
 /* 
     {
-        "idUsuario" ,
+        "token" ,
         "aliasUrl": 
     }
 */
 
 VisitController.AgregarVisita = async (req, res) => {
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        res.status(400).json({
-            resp: 'error en la request',
-            body: errors.array()
-        })
-    }
+    
 
     //const { token, aliasUrl } = req.body;
-    const { token } = req.body;
-    const idUsuario = await DecodificarToken(token).then((res)=>res.id);
-    const aliasUrl = window.location.pathname;
-    
-    await bd.query(`INSERT INTO Visita(id_usuario, alias_url) VALUES(${idUsuario},'${aliasUrl}')`)
+    const { token,url } = req.body;
+    console.log(token);
+    if(token){
+        const id=await DecodificarToken(token).then((res)=>res.id)
+        return await bd.query(`INSERT INTO Visita(id_usuario, alias_url) VALUES(${id},'${url}')`)
         .then(() => {
             res.status(200).json({
                 resp: 'ok',
@@ -40,6 +34,31 @@ VisitController.AgregarVisita = async (req, res) => {
                 body: err
             });
         });
+    }else{
+        return await bd.query(`INSERT INTO Visita( alias_url) VALUES('${url}')`)
+        .then(() => {
+            res.status(200).json({
+                resp: 'ok',
+                body: 'Visita agregada con exito'
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+    }
+    
+}
+
+VisitController.allVisit=async(req,res)=>{
+    await bd.query('select alias_url, count(id_visita) as cant from visita  group by alias_url;')
+    .then((sol)=>res.json({resp:'ok',body:sol.rows})).catch((err)=>res.status(500).json({resp:'error en la bd',body:err}));
+
+
+
 }
 
 module.exports=VisitController;

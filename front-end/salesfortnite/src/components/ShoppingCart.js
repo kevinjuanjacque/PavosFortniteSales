@@ -15,6 +15,7 @@ export const ShoppingCart = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         let product = []
+        if(cart.products && cart.products.length>0){
         cart.products.forEach((p)=>{
             fetch(`http://localhost:4000/api/product/por-id/${p}`,{
                 method:'GET'
@@ -26,7 +27,7 @@ export const ShoppingCart = () => {
                 precio:sol.body[0].precio_unitario,
             })}
             );
-        });
+        });}
 
         setProductCart(product)
 

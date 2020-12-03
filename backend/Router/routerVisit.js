@@ -10,9 +10,8 @@ const VisitController = require('../controller/visitController');
 
 //Registrar visita
 
-routerVisit.post('/agregar', 
-[
-    body('idUsuario').notEmpty()
-], VisitController.AgregarVisita);
+routerVisit.post('/agregar', VisitController.AgregarVisita);
+
+routerVisit.get('/',VisitController.allVisit);
 
 module.exports=routerVisit;
