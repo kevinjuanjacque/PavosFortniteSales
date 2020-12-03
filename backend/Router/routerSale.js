@@ -22,3 +22,5 @@ routerSale.get('/detalle/:id_venta',SaleController.detalleVenta);
 module.exports=routerSale;
 
 routerSale.get('/',SaleController.allSales);
+
+routerSale.get('/ventas-segun-tipo-usuario',SaleController.VentasTipoUsuario);

@@ -36,4 +36,7 @@ routerAuth.post('/changePass',[
     body('contrasenaNew').notEmpty(),
     body('token').notEmpty()
 ],AuthController.changePass);
+
+routerAuth.get('/usuarios-registrados', AuthController.UsuariosRegistrados);
+
 module.exports = routerAuth;

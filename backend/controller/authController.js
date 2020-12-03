@@ -164,8 +164,25 @@ AuthController.changePass=async(req,res)=>{
  * }
  */
 
-    
 
+ // Personas Registradas
+AuthController.UsuariosRegistrados = async (req, res) => {
+    await bd.query(`select count(*) as cantidad from Usuario;`)
+        .then((resp) => {
+            res.json({
+                resp: 'ok',
+                body: resp.rows
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+
+}
 
 module.exports=AuthController;
     

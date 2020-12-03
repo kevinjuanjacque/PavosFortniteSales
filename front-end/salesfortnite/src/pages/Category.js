@@ -30,8 +30,26 @@ export const Category = () => {
                                         urlImage='../assets/psn_gift_card.jpeg'
                                         break;
                                     case 'Xbox':
-                                        urlImage='../assets/psn_gift_card.jpeg'
+                                        urlImage='../assets/xbox_gift_card.png'
                                         break;
+                                    case 'Nintendo':
+                                        urlImage='../assets/nintendo_gift_card.png'
+                                        break;
+                                    case 'Steam':
+                                        urlImage='../assets/steam_gift_card.jpeg'
+                                        break; 
+                                    case 'Google':
+                                        urlImage='../assets/google_gift_card.jpeg'
+                                        break;
+                                    case 'Apple':
+                                        urlImage='https://i.ibb.co/nrbjd8v/notfound.png'
+                                        break;
+                                    case 'Riot':
+                                        urlImage='https://i.ibb.co/nrbjd8v/notfound.png'
+                                        break;
+                                    case 'Fortnite':
+                                        urlImage='https://i.ibb.co/nrbjd8v/notfound.png'
+                                        break;                                     
                                     default:
                                         break;
                                 }

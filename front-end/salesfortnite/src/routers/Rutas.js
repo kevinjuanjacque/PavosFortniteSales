@@ -63,8 +63,8 @@ export const Rutas = () => {
                 </Route>
                 
                 <Route exact path="/Nosotros" component={  Nosotros }/>
-
-            
+                
+                
                 </Switch>)
             }
         </Router>

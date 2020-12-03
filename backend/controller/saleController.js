@@ -96,6 +96,31 @@ SaleController.allSales = async(req,res)=>{
     })
 }
 
+//Ventas Por usuarios registrados vs usuarios no registrados
+
+SaleController.VentasTipoUsuario = async (req, res) => {
+    await bd.query(
+        `SELECT COUNT(id_venta) as cantidad_ventas, 
+        (SELECT COUNT(v.id_venta) FROM Venta v JOIN Usuario u on (u.id_usuario = v.id_usuario) WHERE u.id_rol = 2) as ventas_usuarios_registrados, 
+        (SELECT COUNT(v.id_venta) FROM Venta v JOIN Usuario u on (u.id_usuario = v.id_usuario) WHERE u.id_rol = 3) as ventas_usuarios_no_registrados 
+        FROM Venta;`)
+        .then((resp) => {
+            res.json({
+                resp: 'ok',
+                body: resp.rows
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+
+}
+
+
 
 
 module.exports=SaleController;
