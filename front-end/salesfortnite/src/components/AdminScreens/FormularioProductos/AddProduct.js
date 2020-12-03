@@ -22,12 +22,22 @@ export const AddProduct = () => {
             "stock":Form.Stock,
             "costo":0
         })
-        fetch('http://localhost:4000//api/product/agregar',{
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        fetch('http://localhost:4000/api/product/agregar',{
             method:'POST',
             body:body,
+            headers:myHeaders,
             redirect:"follow"
-        }).then(()=>{window.alert('producto agregado con exito')});
-
+        }).then((resp)=>resp.json()).then((sol)=>window.alert(sol.body));
+        setForm({
+            NombreProducto:'',
+            Categoria:'Default',
+            Price:'',
+            Description:'',
+            SubCategoria:'Default',
+            Stock: 0
+        });
     }
     return (
         <div>
@@ -83,8 +93,8 @@ export const AddProduct = () => {
                         className="form-control" 
                         placeholder="$0" 
                         id="Cost" 
-                        value={Form.Price}
-                        onChange={(e)=>{setForm({...Form,Price:e.target.value})}} 
+                        value={Form.costo}
+                        onChange={(e)=>{setForm({...Form,costo:e.target.value})}} 
                     />
                 </div>
                 <div className="col">

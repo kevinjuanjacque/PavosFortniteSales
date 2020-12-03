@@ -23,7 +23,19 @@ export const Category = () => {
                         (
         
                             data.data.map(p=>{
-                                return (<InProductoPsn key={p.id_producto} id={p.id_producto} nombre_producto={p.nombre_producto} precio_unitario={p.precio_unitario} />)
+                                let urlImage = 'https://i.ibb.co/nrbjd8v/notfound.png';
+                                
+                                switch (categoria) {
+                                    case 'Playstation':
+                                        urlImage='../assets/psn_gift_card.jpeg'
+                                        break;
+                                    case 'Xbox':
+                                        urlImage='../assets/psn_gift_card.jpeg'
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                return (<InProductoPsn key={p.id_producto} url={urlImage} id={p.id_producto} nombre_producto={p.nombre_producto} precio_unitario={p.precio_unitario} />)
                             })
                         )
                     }

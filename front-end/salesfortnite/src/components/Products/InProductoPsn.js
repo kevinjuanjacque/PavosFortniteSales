@@ -7,7 +7,7 @@ import { MdAddShoppingCart } from "react-icons/md";
 import {useDispatch} from 'react-redux';
 import { addCart } from '../../helpers/actions/ActionCart'; 
 
-export const InProductoPsn = ({nombre_producto, precio_unitario,id}) => {
+export const InProductoPsn = ({nombre_producto, precio_unitario,id,url}) => {
     const dispatch = useDispatch()
     const AgregarProduct = ()=>{ 
         dispatch( addCart(id) )
@@ -19,9 +19,9 @@ export const InProductoPsn = ({nombre_producto, precio_unitario,id}) => {
             <br></br>
             
             <Link to={`/Detalle/DetalleProducto/${id}`} className="ZoomImagen">
-                <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "170"/>
+                <img src={url} alt="imagen" height = "170"/>
             </Link>
-                <p>{nombre_producto} <br/><strong>{ precio_unitario}</strong></p> 
+                <p>{nombre_producto} <br/><strong>${ precio_unitario}</strong></p> 
             <button  className="btn boton" onClick={AgregarProduct}  > <MdAddShoppingCart size="19px"/> AGREGAR</button>        
         </div>
     )
