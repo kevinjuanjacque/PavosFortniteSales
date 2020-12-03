@@ -22,7 +22,7 @@ const DecodificarToken=(token)=>{
     return new Promise((resolve,reject)=>{
         jwt.verify(token,process.env.SECRET_JWT_KEY,(err,decode)=>{
             if(err){
-                reject('ocurrio un error');
+                reject('ocurrio un error: '+ err);
             }
             resolve(decode);
         })

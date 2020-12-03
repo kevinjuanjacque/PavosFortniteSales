@@ -1,30 +1,33 @@
 import { useEffect, useState } from 'react';
 
-export const GetProduct = (categoria) => {
-    const [Products, setProducts] = useState({
+export const ProductId= () => {
+    const [Compras, setCompras] = useState({
         loading:true,
         data:''
     });    
-    
+   
     useEffect(() => {
-        fetch( `http://localhost:4000/api/product/categoria/${categoria}`, {
-            method:'GET'
+        fetch( `http://localhost:4000/api/product/retonarArrayProduct`, {
+            method:'POST',
+            body:JSON.stringify({"arrayProduc":localStorage.getItem('Products').split(',')}),
+            redirect: 'follow'
+            
         })
         .then((res)=>{
             return res.json();
         })
         .then((resultado)=>{
-            setProducts({
+            setCompras({
                 loading:false,
                 data:resultado.body
             });
         }).catch((err)=>{
-            setProducts({
+            setCompras({
                 loading:false,
                 data:'Error'
             });
         });
-    }, [categoria]);
+    }, []);
 
-    return Products;
+    return Compras;
 }

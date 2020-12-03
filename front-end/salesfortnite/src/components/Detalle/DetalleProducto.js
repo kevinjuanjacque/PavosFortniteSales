@@ -1,31 +1,34 @@
 import React from 'react';
 import '../../Styles/imagenes.css';
 import '../home/productos-destacados.js';
-import { Similares } from '../Detalle/Similares.js';
 import '../../Styles/enlaces.css';
 import '../../Styles/botones.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { MdAddShoppingCart } from "react-icons/md";
 
 import {useDispatch} from 'react-redux';
 import { addCart } from '../../helpers/actions/ActionCart';
+import { GetProductById } from '../../helpers/function/GetProductById';
 
 
 export const DetalleProducto= () => {
     const dispatch = useDispatch()
-
+    const { id }=useParams();
     const AgregarProduct = ()=>{
-        const id= new Date().getTime();
         dispatch( addCart(id) )
     }
 
-    
+    const producto = GetProductById(id);
     window.scrollTo(0, 0);
     return (
         <>
         <div className="container " >
         
-            <div className="card mb-3">
+            {
+                (producto.loading) ? (<></>):
+                ( 
+                
+                <div className="card mb-3">
                 <br></br>
                 <div className="row no-gutters">
                     <div className="col-md-4">
@@ -39,7 +42,7 @@ export const DetalleProducto= () => {
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/">Inicio</Link></li>
                                 <li className="breadcrumb-item"><Link to="/Playstation">Playstation</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page"  >GIFT CARD 10 USD PSN</li>
+                <li className="breadcrumb-item active" aria-current="page"  >{producto.data[0].nombre_producto}</li>
                             </ol>
                         </nav>
                         <div className="card-body">  
@@ -47,8 +50,8 @@ export const DetalleProducto= () => {
                             <img src="../assets/metodos_pago.png" alt="imagen" height="300"/>
                         </div>                             
                             <div className="col-sm-8">
-                                <h1 className="card-title" >GIFT CARD 10 USD PSN</h1>  
-                                <h3>$7.990 </h3>
+                                <h1 className="card-title" >{producto.data[0].nombre_producto}</h1>  
+                                <h3>${producto.data[0].precio_unitario}</h3>
 
                                 <button  className="btn boton" onClick={AgregarProduct} > <MdAddShoppingCart size="23px"/> AÑADIR AL CARRITO</button>
                                
@@ -72,7 +75,8 @@ export const DetalleProducto= () => {
                       
                 </div>
             </div>
-            <Similares/>
+           )
+            }
         </div>
 
 

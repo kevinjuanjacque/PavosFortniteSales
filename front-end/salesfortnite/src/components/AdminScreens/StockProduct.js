@@ -1,6 +1,11 @@
 import React from 'react';
+import { StockProduc } from '../../helpers/function/GetStock';
 import '../../Styles/StockStyle.css';
 export const StockProduct = () => {
+
+    const stock = StockProduc();
+    console.log(stock.data.length);
+
     return (
         <div className="container mt-2">
             <h1> Stock de productos </h1>
@@ -27,42 +32,39 @@ export const StockProduct = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            
-                            <div className="row" >
-                                <div className=" normal mr-2 ml-2" >
-                                
-                                </div>
-                                normal
-                            </div>
-                        </td>
-                        <td>Gift Card 10usd PSN</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                        <div className="row" >
-                                <div className=" critico mr-2 ml-2" >
-                                
-                                </div>
-                                critico
-                            </div>
-                        </td>
-                        <td>Gift Card 20usd PSN</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            <div className="row" >
-                                <div className=" superavit mr-2 ml-2 " >
-                                </div>
-                                superavit
-                            </div>
-                        </td>
-                        <td >Gift Card 50usd PSN</td>
-                        <td>10</td>
-                    </tr>
+                    {
+                        (!stock.loading) && (
+                            stock.data.map(p=>{
+                                var estado=""
+                                    if(p.stock>=10){
+                                        estado="superavit"
+                                    }
+                                    else{
+                                        if(p.stock<10 && p.stock>4){
+                                            estado="normal"
+                                        }
+                                        else{
+                                            estado="critico"
+                                        }
+                                    }
+                                return(<tr>
+                                            <td>
+            
+                                                <div className="row" >
+                                                    <div className={estado+" mr-2 ml-2"} >
+            
+                                                    </div>
+                                            {estado}
+                                        </div>
+                                            </td>
+                                            <td>{p.nombre_producto}</td>
+                                            <td>{p.stock}</td>
+                                        </tr>)
+                            })
+                        )
+                    }
+                    
+                    
                 </tbody>
             </table>
         </div>

@@ -2,7 +2,7 @@ const AuthController={};
 const bd = require('../DataBase/DataBase');
 
 const {  validationResult } = require('express-validator');
-const { GeneradorToken } = require('../helpers/jwt');
+const { GeneradorToken, DecodificarToken } = require('../helpers/jwt');
 
 
 
@@ -37,7 +37,8 @@ AuthController.IniciarSesion = async (req, res) => {
             resp:'Ok',
             body:{
                 res:'Sesión iniciada correctamente',
-                token: await GeneradorToken(usuario.id_usuario,usuario.nombre_completo)
+                token: await GeneradorToken(usuario.id_usuario,usuario.nombre_completo),
+                name:usuario.nombre_completo
              }
          });
     }else{
@@ -88,6 +89,71 @@ AuthController.registrarUsuario = async (req,res)=>{
         });
     });
 
+}
+AuthController.validarToken = async (req,res)=>{
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({
+            resp:'error en la request',
+            body:errors.array()
+        })
+    }
+    const {token} = req.body;
+    const decode = await DecodificarToken(token);
+   
+    if(!decode.id){
+        return res.status(401).json({
+            resp:'error en token',
+            body:'token no valido'
+        });
+    }
+
+    const {rows} =await bd.query(`SELECT * FROM Usuario WHERE id_usuario=${decode.id}`).then((res)=>res); 
+    
+    if(!rows[0]){
+        return res.status(401).json({
+            resp:'error en token',
+            body:'token no valido'
+        });
+    }  
+
+    res.json({
+        resp:'ok',
+        body:{
+            email:rows[0].email,
+            name: rows[0].nombre_completo
+        }
+    })
+
+
+}
+
+
+AuthController.changePass=async(req,res)=>{
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        return res.status(400).json({
+            resp:'error en la request',
+            body:errors.array()
+        })
+    }
+    const{ contrasenaActual,contrasenaNew ,token} = req.body;
+
+    const {id}= await DecodificarToken(token);
+    return await bd.query(`update usuario set contrasena='${contrasenaNew}'
+    where id_usuario=${id} and contrasena='${contrasenaActual}';`).then(()=>{
+        return res.json({
+            resp:'ok',
+            body:'contraseña cambiada con exito'
+        })
+    }).catch(()=>{
+        return res.status(401).json({
+            resp:'Ocurrio un error',
+            body:'contraseña actual invalida.'
+        });
+    });
 }
 
 /**

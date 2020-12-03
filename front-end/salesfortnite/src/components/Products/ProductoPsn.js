@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const ProductoPsn = () => {
+export const ProductoPsn = ({nombre,precio,id}) => {
     return (
         <div className="col">
             <br></br>
             
-            <Link to="../Detalle/DetalleProducto" className="ZoomImagen">
+            <Link to={`../Detalle/DetalleProducto/${id}`} className="ZoomImagen">
                 <img src="../assets/psn_gift_card.jpeg" alt="imagen" height = "170"/>
             </Link>
-            <p>$10 PSN GIFT CARD <br/><strong>$7.990</strong></p> 
+            <p>{nombre} <br/><strong>${precio}</strong></p> 
                         
         </div>
     )

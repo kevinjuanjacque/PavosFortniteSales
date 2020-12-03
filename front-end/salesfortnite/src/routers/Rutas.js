@@ -20,14 +20,20 @@ import { ClientScreen2 } from '../pages/ClientScreen2';
 import { MiPerfil } from '../pages/MiPerfil';
 import { SideBarLeft } from '../components/SideBars/SideBarLeft';
 import { Nosotros } from '../pages/Nosotros';
+import { PromesaValidarToken } from '../helpers/function/PromesaValidarToken';
+import { ReLogin } from '../helpers/actions/authAction';
 
 
 export const Rutas = () => {
     const dispatch = useDispatch();
+    ( localStorage.getItem('Products') ) && dispatch(llenarCart( localStorage.getItem('Products') ) );
     
-        ( localStorage.getItem('Products') ) && dispatch(llenarCart( localStorage.getItem('Products') ) ) 
-
-    const auth = useSelector(state => state.auth)
+    const auth = useSelector(state => state.auth);
+    if( localStorage.getItem('token') && !auth.name ){
+        PromesaValidarToken(localStorage.getItem('token')).then((res)=>{
+            dispatch(ReLogin(res.email,res.name));
+        });
+    }
     
     return (
         <Router>
@@ -45,12 +51,12 @@ export const Rutas = () => {
     
                 
                 <Route exact path="/ClientScreen" component={  ClientScreen }/>
-                <Route exact path="/ClientScreen2" component={  ClientScreen2 }/>
+                <Route exact path="/ClientScreen2/:idOrden" component={  ClientScreen2 }/>
                 <Route exact path="/MiPerfil" component={  MiPerfil }/>
 
 
 
-                <Route exact path="/Detalle/DetalleProducto" component={ScreenProducto}/>
+                <Route exact path="/Detalle/DetalleProducto/:id" component={ScreenProducto}/>
                 <Route exact path="/Categoria/:categoria" >
                     <SideBarLeft/>
                     <Category/>

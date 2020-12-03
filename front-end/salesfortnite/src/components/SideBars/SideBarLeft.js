@@ -34,9 +34,9 @@ export const SideBarLeft = () => {
           
                 <ul className="list-group list-group-flush mt-2 m-2">
                         <div className="list-group-item list-group-item-secondary list-group-item-action text-muted ">
-                            <Link className="text-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <p className="text-secondary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Ordenar por <IoIosArrowForward/>
-                            </Link>
+                            </p>
                             <div className="dropdown-menu" id="dropdownCategorias" aria-labelledby="dropdownMenuButton" onMouseLeave={()=>{
                                 document.getElementById("dropdownCategorias").click();}}>
                                 <Link className="dropdown-item" to="/Playstation"> Precio: menor a mayor </Link>

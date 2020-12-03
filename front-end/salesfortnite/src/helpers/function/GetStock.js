@@ -1,30 +1,30 @@
 import { useEffect, useState } from 'react';
 
-export const GetProduct = (categoria) => {
-    const [Products, setProducts] = useState({
+export const StockProduc= () => {
+    const [stock, setstock] = useState({
         loading:true,
         data:''
     });    
-    
+   
     useEffect(() => {
-        fetch( `http://localhost:4000/api/product/categoria/${categoria}`, {
+        fetch( `http://localhost:4000/api/product/stock`, {
             method:'GET'
         })
         .then((res)=>{
             return res.json();
         })
         .then((resultado)=>{
-            setProducts({
+            setstock({
                 loading:false,
                 data:resultado.body
             });
         }).catch((err)=>{
-            setProducts({
+            setstock({
                 loading:false,
                 data:'Error'
             });
         });
-    }, [categoria]);
+    }, []);
 
-    return Products;
+    return stock;
 }

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-export const GetProduct = (categoria) => {
+export const GetProductDestacados = () => {
     const [Products, setProducts] = useState({
         loading:true,
         data:''
     });    
     
     useEffect(() => {
-        fetch( `http://localhost:4000/api/product/categoria/${categoria}`, {
+        fetch( `http://localhost:4000/api/product`, {
             method:'GET'
         })
         .then((res)=>{
@@ -24,7 +24,7 @@ export const GetProduct = (categoria) => {
                 data:'Error'
             });
         });
-    }, [categoria]);
+    }, []);
 
     return Products;
 }

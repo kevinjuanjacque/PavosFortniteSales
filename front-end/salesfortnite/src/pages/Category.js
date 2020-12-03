@@ -7,7 +7,7 @@ import '../Styles/filtros.css';
 
 export const Category = () => {
     const { categoria }=useParams();
-    const data = GetProduct();
+    const data = GetProduct(categoria);
 
 
 
@@ -22,7 +22,7 @@ export const Category = () => {
                         (
         
                             data.data.map(p=>{
-                                return (<InProductoPsn key={p.id_producto} nombre_producto={p.nombre_producto} precio_unitario={p.precio_unitario} />)
+                                return (<InProductoPsn key={p.id_producto} id={p.id_producto} nombre_producto={p.nombre_producto} precio_unitario={p.precio_unitario} />)
                             })
                         )
                     }

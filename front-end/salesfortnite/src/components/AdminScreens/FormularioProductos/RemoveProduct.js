@@ -1,8 +1,13 @@
 import React from 'react';
 import {BsTrash} from 'react-icons/bs';
+import { AllProduct } from '../../../helpers/function/AllProduct';
+import { deleteProduct } from '../../../helpers/function/deleteProduct';
 
 export const RemoveProduct = () => {
-
+    const products = AllProduct();
+    const changeBuscar =(e)=>{
+        products.data=products.data.filter( p => p.nombre_producto.indexOf(e.target.value) > -1 );
+    }
     return (
         <div>
             <h1>Eliminar Producto</h1>
@@ -14,7 +19,8 @@ export const RemoveProduct = () => {
                         type="text" 
                         className="form-control" 
                         id="nombreProduto" 
-                        placeholder="Ej Gift card 10usd psn..." 
+                        placeholder="Ej Gift card 10usd psn..."
+                        onChange={(e)=>{changeBuscar(e)}}
                     />
                 </div>
                 <div className="col-2">
@@ -31,24 +37,20 @@ export const RemoveProduct = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Gift Card 10usd PSN</td>
-                        <td>$1000</td>
-                        <td><button className="btn ColorBotones"> <BsTrash color="white" /> </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Gift Card 20usd PSN</td>
-                        <td>$10000</td>
-                        <td><button className="btn ColorBotones"> <BsTrash color="white"/> </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td >Gift Card 50usd PSN</td>
-                        <td>$100000</td>
-                        <td><button className="btn ColorBotones"> <BsTrash color="white"/> </button></td>
-                    </tr>
+
+                    {
+                        (!products.loading) && (
+                            products.data.map((p)=>{
+                                return (<tr key={p.id_producto}>
+                                <th scope="row">{p.id_producto}</th>
+                                <td>{p.nombre_producto}</td>
+                                <td>${p.precio_unitario}</td>
+                                <td><button onClick={()=>{ deleteProduct(p.id_producto).then(()=>window.alert('producto eliminado con exito')).catch(()=>window.alert('Ocurrrio un error')) }} className="btn ColorBotones"> <BsTrash color="white" /> </button></td>
+                            </tr>)
+                            })
+                        )
+                    }
+                    
                 </tbody>
             </table>
         </div>

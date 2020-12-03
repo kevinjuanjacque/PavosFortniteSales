@@ -9,11 +9,31 @@ export const AddProduct = () => {
         SubCategoria:'Default',
         Stock: 0
     })
+    const agregarProducto=(e)=>{
+        e.preventDefault();
+        const body = JSON.stringify({
+            "idCategoria":1,
+            "idTipoProducto":1,
+            "nombreProducto":Form.NombreProducto,
+            "precioUnitario":Form.Price,
+            "descuento":0,
+            "urlImagen":'',
+            "descripcion":Form.Description,
+            "stock":Form.Stock,
+            "costo":0
+        })
+        fetch('http://localhost:4000//api/product/agregar',{
+            method:'POST',
+            body:body,
+            redirect:"follow"
+        }).then(()=>{window.alert('producto agregado con exito')});
+
+    }
     return (
         <div>
             <h1>Añadir Producto</h1>
             <hr />
-            <form>
+            <form onSubmit={(e)=>{agregarProducto(e)}}>
             <div className="form-group">
                 <label htmlFor="nombreProduto"> Nombre del producto</label>
                 <input 

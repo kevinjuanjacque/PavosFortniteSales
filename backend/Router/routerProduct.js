@@ -52,7 +52,7 @@ routerProduct.put('/actualizar',
 routerProduct.get('/por-id/:idProducto',ProductController.BuscarProductoPorId);
 
 //buscar producto por nombre
-routerProduct.get('/:nombreProducto',ProductController.BuscarProductoPorNombre);
+routerProduct.get('/buscaByName/:nombreProducto',ProductController.BuscarProductoPorNombre);
 
 
 //retornar todos los productos
@@ -61,5 +61,9 @@ routerProduct.get('/categoria/:nombreCategoria', ProductController.RetornarTodoP
 //retornar productos destacados
 routerProduct.get('/', ProductController.RetornarProductoDestacado);
 
+routerProduct.get('/stock',ProductController.stockProductos);
 
+routerProduct.get('/Allproduct',ProductController.allProduct);
+
+routerProduct.post('/retonarArrayProduct',ProductController.ArrayProducts)
 module.exports=routerProduct;

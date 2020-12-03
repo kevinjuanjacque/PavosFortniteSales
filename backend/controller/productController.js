@@ -197,10 +197,9 @@ ProductController.BuscarProductoPorNombre = async (req, res) => {
 ProductController.RetornarTodoProducto = async (req, res) => {
 
     const { nombreCategoria } = req.params;
-    id = await bd.query(`SELECT id_categoria FROM Categoria WHERE nombre iLike '${nombreCategoria}%'`).then((res)=>res.rows);
-    idCategoria = id[0]["id_categoria"];
-    
-    await bd.query(`SELECT * FROM Producto WHERE id_categoria=${idCategoria}`)
+    const id = await bd.query(`SELECT id_categoria FROM Categoria WHERE nombre iLike '${nombreCategoria}%'`).then((res)=>res.rows);
+    const {id_categoria} = id[0];
+    await bd.query(`SELECT * FROM Producto WHERE id_categoria=${id_categoria}`)
         .then((resp) => {
             res.json({
                 resp: 'ok',
@@ -241,5 +240,60 @@ ProductController.RetornarProductoDestacado = async (req, res) => {
 
 }
 
+ProductController.stockProductos=async(req,res)=>{
+
+    return await bd.query('SELECT stock, nombre_producto FROM producto').then((resp) => {
+        return res.json({
+            resp: 'ok',
+            body: resp.rows
+
+        });
+    }).catch((err) => {
+        console.log(err);
+        return res.status(400).json({
+            resp: 'Error en la bd',
+            body: err
+        });
+    });
+}
+
+ProductController.allProduct=async(req,res)=>{
+    return await bd.query('SELECT id_producto,nombre_producto,precio_unitario FROM producto').then((resp) => {
+        return res.json({
+            resp: 'ok',
+            body: resp.rows
+
+        });
+    }).catch((err) => {
+        console.log(err);
+        return res.status(400).json({
+            resp: 'Error en la bd',
+            body: err
+        });
+    });
+}
+
+
+ProductController.ArrayProducts=async(req,res)=>{
+
+    const {arrayProduc} = req.body;
+
+    var sentencia = `SELECT * FROM Producto  where id_producto=` 
+
+    arrayProduc.forEach((id,index)=>{
+        if(index===0){
+            sentencia= sentencia+id;
+        }else{
+            sentencia= sentencia+'or id_producto='+id;
+        }
+    })
+
+    const {rows} = await bd.query(sentencia);
+    
+    res.json({
+        resp:'ok',
+        body:rows
+    })
+}
 
 module.exports=ProductController;

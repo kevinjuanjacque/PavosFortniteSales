@@ -5,7 +5,7 @@ import { GoogleLogin } from 'react-google-login';
 
 import {BsPerson} from "react-icons/bs";
 import { useDispatch } from 'react-redux';
-import { startGoogleLogin } from '../../helpers/actions/authAction';
+import { loginNormal, startGoogleLogin } from '../../helpers/actions/authAction';
 import { cerrarSide } from '../../helpers/actions/uiActions';
 
 export const AuthLogin = () => {
@@ -21,11 +21,14 @@ export const AuthLogin = () => {
                     <div className="wrapper animate__animated animate__fadeIn">
                         <form className="form-signin" onSubmit={(e)=>{
                             e.preventDefault();
+                            
+                            loginNormal(document.getElementById("email").value,document.getElementById("password").value,dispatch);
+                            dispatch(cerrarSide());
                         }}>
                             
                         <h2 className="form-signin-heading"><BsPerson size="40"  /> Iniciar</h2>
-                        <input required type="email" className="form-control" name="username" placeholder="Email Address"  />
-                        <input required type="password" className="form-control" name="password" placeholder="Password" />      
+                        <input required id="email" type="email" className="form-control" name="username" placeholder="Email Address"  />
+                        <input required id="password" type="password" className="form-control" name="password" placeholder="Password" />      
                         <label className="checkbox">
                             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me
                         </label>

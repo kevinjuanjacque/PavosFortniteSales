@@ -29,5 +29,11 @@ routerAuth.post('/register',
 ]
 ,AuthController.registrarUsuario);
 
+routerAuth.post('/',[body('token').notEmpty()],AuthController.validarToken);
 
+routerAuth.post('/changePass',[
+    body('contrasenaActual').notEmpty(),
+    body('contrasenaNew').notEmpty(),
+    body('token').notEmpty()
+],AuthController.changePass);
 module.exports = routerAuth;

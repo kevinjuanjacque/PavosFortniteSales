@@ -15,5 +15,10 @@ routerSale.post('/agregar-venta',
     body('products').isArray()
 ],SaleController.AgregarVenta);
 
+//ventas del cliente
+routerSale.post('/misCompras',[body('token').notEmpty(),],SaleController.SalesByidUser)
 
+routerSale.get('/detalle/:id_venta',SaleController.detalleVenta);
 module.exports=routerSale;
+
+routerSale.get('/',SaleController.allSales);
