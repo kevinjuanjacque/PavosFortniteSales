@@ -21,7 +21,7 @@ export const User = () => {
         
             
             {
-                    (auth.name==="Kevin Jake") ? <ItemAdmin /> : (
+                    (auth.name==="Kevin Jake" || auth.name==="Ignacio Fajardo" ) ? <ItemAdmin /> : (
                         
                             <ul className="list-group list-group-flush mt-2 m-2">
                             <h5 className="text-white" > Perfil </h5>
