@@ -6,9 +6,10 @@ import { CargarSearch } from '../helpers/function/CargarProductos'
 export const Search = () => {
     const {palabra} = useParams();
     const data =CargarSearch(palabra);
-    console.log(data.data)
+    AddVisit(window.location.pathname);
     return (
         <div>
+            <div className="row row-cols-xl-6">
             {
                         (data.loading) ? <h1>CARGANDO DATA ... </h1> :
                         (
@@ -48,6 +49,7 @@ export const Search = () => {
                             })
                         )
                     }
+                </div>
         </div>
     )
 }
