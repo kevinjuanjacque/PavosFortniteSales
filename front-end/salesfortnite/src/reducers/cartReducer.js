@@ -21,10 +21,7 @@ export const cartReducer=(state=initialState,action)=>{
     switch (action.type) {
         case 'agregar-product':
             return {
-                'products':[
-                    ...state.products,
-                    action.body
-                ]
+                'products':action.body
             };
 
         case 'vaciar-carro':

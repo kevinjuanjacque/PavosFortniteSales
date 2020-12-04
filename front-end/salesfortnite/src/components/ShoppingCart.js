@@ -16,20 +16,23 @@ export const ShoppingCart = () => {
     useEffect(()=>{
         let product = []
         if(cart.products && cart.products.length>0){
-        cart.products.forEach((p)=>{
-            fetch(`http://localhost:4000/api/product/por-id/${p}`,{
-                method:'GET'
-            }).then((resp)=>resp.json()).then((sol)=>{
-                
-                product.push({
-                id:sol.body[0].id_producto,
-                nombre:sol.body[0].nombre_producto,
-                precio:sol.body[0].precio_unitario,
-            })}
-            );
-        });}
+            cart.products.forEach(async(p)=>{
+                console.log(p);
+                await fetch(`http://localhost:4000/api/product/por-id/${p}`,{
+                    method:'GET'
+                }).then((resp)=>resp.json()).then((sol)=>{
+                    
+                    product.push({
+                    id:sol.body[0].id_producto,
+                    nombre:sol.body[0].nombre_producto,
+                    precio:sol.body[0].precio_unitario,
+                })}
+                );
+            });
+            setProductCart(product)
+        }
 
-        setProductCart(product)
+        
 
     },[cart.products])
     return (
@@ -60,7 +63,7 @@ export const ShoppingCart = () => {
                             <tbody>
 
                                 {   
-                                   (productCart.length>0) && productCart.map((p,index)=>{
+                                   (cart.products.length>0) && productCart.map((p,index)=>{
                                        
                                     return (<tr key={index}>
                                         <th scope="row">{p.id}</th>
