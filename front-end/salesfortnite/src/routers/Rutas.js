@@ -51,7 +51,7 @@ export const Rutas = () => {
     
                 
                 <Route exact path="/ClientScreen" component={  ClientScreen }/>
-                <Route exact path="/ClientScreen2/:idOrden" component={  ClientScreen2 }/>
+                <Route exact path="/MisCompras/:idOrden" component={  ClientScreen2 }/>
                 <Route exact path="/MiPerfil" component={  MiPerfil }/>
 
 

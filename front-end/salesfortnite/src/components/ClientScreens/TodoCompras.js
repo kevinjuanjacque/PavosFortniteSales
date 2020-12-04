@@ -42,7 +42,7 @@ export const TodoCompras = () => {
                                                     <tr>
                                                         <th scope="row">{c.id_venta}</th>
                                                         <td>{c.total}</td>
-                                                        <td><Link className="btn boton" to={"/ClientScreen2/"+c.id_venta.toString()}> <IoMdListBox size="20px"/> Ver orden</Link></td>
+                                                        <td><Link className="btn boton" to={"/MisCompras/"+c.id_venta.toString()}> <IoMdListBox size="20px"/> Ver orden</Link></td>
                                                     </tr>)
                                             })
                                             
