@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../Styles/appbar.css';
 import { SideBar } from './SideBars/SideBar';
@@ -15,6 +15,8 @@ import {CountCart} from './Cart/CountCart'
 export const Navbar = () => {
     const dispatch = useDispatch();
     const state = useSelector(state => state.auth);
+
+    const [Search, setSearch] = useState('')
     
     return (
         <>
@@ -31,8 +33,12 @@ export const Navbar = () => {
                        
                     <div className="collapse navbar-collapse  " id="navbarNav" >
                         <form className="form-inline">
-                            <input className="form-control mr-sm-2" type="search" placeholder="Busca tu producto..." aria-label="Search"/>
-                            <button className="btn btn-outline-success my-2 my-sm-0" type="submit"><BsSearch /> Buscar</button>
+                            <input id="palabra" 
+                            onChange={(e)=>{setSearch(e.target.value)}}
+                            value={Search} className="form-control mr-sm-2" type="search" placeholder="Busca tu producto..." aria-label="Search"/>
+                            <Link className="btn btn-outline-success my-2 my-sm-0" type="submit"
+                                to={'/search/'+Search}
+                            ><BsSearch /> Buscar</Link>
                         </form>  
                         <ul className="navbar-nav" >
                             <li className="nav-item">

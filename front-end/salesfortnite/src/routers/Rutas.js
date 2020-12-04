@@ -22,6 +22,7 @@ import { SideBarLeft } from '../components/SideBars/SideBarLeft';
 import { Nosotros } from '../pages/Nosotros';
 import { PromesaValidarToken } from '../helpers/function/PromesaValidarToken';
 import { ReLogin } from '../helpers/actions/authAction';
+import { Search } from '../pages/Search';
 
 
 export const Rutas = () => {
@@ -63,6 +64,9 @@ export const Rutas = () => {
                 </Route>
                 
                 <Route exact path="/Nosotros" component={  Nosotros }/>
+
+                <Route exact path="/search/:palabra" component={ Search } />
+
                 
                 
                 </Switch>)
