@@ -17,7 +17,6 @@ export const ShoppingCart = () => {
         let product = []
         if(cart.products && cart.products.length>0){
             cart.products.forEach(async(p)=>{
-                console.log(p);
                 await fetch(`http://localhost:4000/api/product/por-id/${p}`,{
                     method:'GET'
                 }).then((resp)=>resp.json()).then((sol)=>{

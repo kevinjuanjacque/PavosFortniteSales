@@ -17,7 +17,7 @@ export const emptyCart = () => {
 
 export const llenarCart = (lista) => {
     const listado=lista.split(',');
-    console.log(listado);
+    
     return {
         type:'Re-llenar-products',
         body: { listado  }

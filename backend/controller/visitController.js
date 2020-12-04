@@ -17,7 +17,6 @@ VisitController.AgregarVisita = async (req, res) => {
 
     //const { token, aliasUrl } = req.body;
     const { token,url } = req.body;
-    console.log(token);
     if(token){
         const id=await DecodificarToken(token).then((res)=>res.id)
         return await bd.query(`INSERT INTO Visita(id_usuario, alias_url) VALUES(${id},'${url}')`)

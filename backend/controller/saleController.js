@@ -29,11 +29,14 @@ SaleController.AgregarVenta = async (req, res) => {
     const idVenta =  parseInt(new Date().getTime() +  id);
     
     
+    
 
-    await bd.query(`INSERT INTO Venta VALUES(${idVenta},${id},${total})`).catch((err)=>{console.log('error')});
+    await bd.query(`INSERT INTO Venta VALUES(${idVenta},${id},'true',${total})`).then(()=>{}).catch((err)=>{console.log('error')});
 
     products.forEach(async (p)=>{
-        await bd.query(`INSERT INTO DetalleVenta (id_venta,id_producto,cantidad) VALUES( ${idVenta},${p.id},${p.cantidad} );`);
+        await bd.query(`INSERT INTO DetalleVenta (id_venta,id_producto,cantidad) VALUES( ${idVenta},${p.id},${p.cantidad} );`).catch((err)=>{
+            
+        });
     });
 
     res.json({
