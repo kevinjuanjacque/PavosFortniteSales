@@ -22,7 +22,7 @@ export const ComprasPorUser = () => {
 
     };
     useEffect(()=>{
-        VentaTipoUser().then((res)=>setVs({registrados: res.ventas_usuarios_registrados,NotRegistrados:res.ventas_no_registrados}));
+        VentaTipoUser().then((res)=>setVs({registrados: res.ventas_usuarios_registrados,NotRegistrados:res.ventas_usuarios_no_registrados}));
     },[]);
     
     return (
@@ -43,11 +43,11 @@ export const ComprasPorUser = () => {
                     <tbody>
                         <tr>
                             <td>Registrados</td>
-                            <td>7</td>
+                            <td>{HookVs.registrados}</td>
                         </tr>
                         <tr>
                             <td>No registrados</td>
-                            <td>3</td>
+                            <td>{HookVs.NotRegistrados}</td>
                         </tr>
                         
                     </tbody>

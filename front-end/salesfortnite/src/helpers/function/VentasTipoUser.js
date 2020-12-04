@@ -7,7 +7,7 @@ export const VentaTipoUser = (token) => {
             return res.json();
         })
         .then((resultado)=>{
-            resolve(resultado.body);
+            resolve(resultado.body[0]);
         }).catch(()=>{
             
             reject('No se pudo cargar la info');
