@@ -9,7 +9,7 @@ export const AddVisit = (url) => {
     
     useEffect(() => {
         const token=localStorage.getItem('token');
-        console.log(token)
+        
         const  myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         fetch( 'http://localhost:4000/api/visit/agregar', {

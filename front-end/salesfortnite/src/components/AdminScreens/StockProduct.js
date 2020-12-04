@@ -4,7 +4,7 @@ import '../../Styles/StockStyle.css';
 export const StockProduct = () => {
 
     const stock = StockProduc();
-    console.log(stock.data.length);
+    
 
     return (
         <div className="container mt-2">
