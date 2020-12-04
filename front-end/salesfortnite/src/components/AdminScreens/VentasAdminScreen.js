@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AllSales } from '../../helpers/function/allSales';
 import { StockProduct } from './StockProduct';
 
 export const Ventas = () => {
 
     const ventas = AllSales();
-    const Meta =100000;
+    const Meta =1000000;
     
     
-    
+    useEffect(()=>{
+        if(!ventas.loading){
+            document.getElementById('progreso').style.width=ventas.data.reduce((a,b)=>a+b.total,0)*100/Meta.toString()+'%'
+        }
+    },[ventas])
 
 
     return ((ventas.loading) ? <></> : (
@@ -24,8 +28,11 @@ export const Ventas = () => {
                             "progress-bar progress-bar-striped bg-success"
                         }
                         role="progressbar" id="progreso" 
-                         aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                         aria-valuenow="100" aria-valuemin="00" aria-valuemax="100" >
+
                              {ventas.data.reduce((a,b)=>a+b.total,0)*100/Meta}% ( ${ventas.data.reduce((a,b)=>a+b.total,0)} )
+
+
                          </div> 
                     </div>
                 </div>

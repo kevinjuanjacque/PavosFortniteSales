@@ -28,6 +28,7 @@ SaleController.AgregarVenta = async (req, res) => {
     const id = await DecodificarToken(token).then((res)=>res.id);
     const idVenta =  parseInt(new Date().getTime() +  id);
     
+    
 
     await bd.query(`INSERT INTO Venta VALUES(${idVenta},${id},${total})`).catch((err)=>{console.log('error')});
 

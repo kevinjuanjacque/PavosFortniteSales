@@ -82,7 +82,37 @@ export const ShoppingCart = () => {
                                     dispatch(emptyCart());
                                 }}
                             ><BsTrash /> Vaciar </button>
-                            <button type="button" className="btn boton"><AiOutlineCreditCard /> PAGAR TOTAL ${ productCart.reduce((a,b)=>a+b.precio,0) }</button>
+                            <button type="button" disabled={(cart.products.length>0) ? false : true} onClick={()=>{
+                                
+                                const myHeaders = new Headers();
+                                myHeaders.append("Content-Type", "application/json");
+                                const cart = localStorage.getItem('Products').split(',');
+                                const raw = JSON.stringify({
+                                    "token":localStorage.getItem('token'), 
+                                    "products": cart.map((p)=>{
+                                        return {id:p,cantidad:1}
+                                    }),
+                                    "total":productCart.reduce((a,b)=>a+b.precio,0)     
+                                });
+
+                                    fetch( `http://localhost:4000/api/sale/agregar-venta`, {
+                                        method: 'POST',
+                                        headers: myHeaders,
+                                        body: raw,
+                                        redirect: 'follow'
+                                    }).then((res)=>{
+                                        return res.json();
+                                    })
+                                    .then((resultado)=>{
+                                        dispatch(cerrarModal());
+                                        dispatch(emptyCart());
+                                        window.alert('muchas gracias por tu compra.')
+                                    })
+
+
+
+                        
+                            }} className="btn boton"><AiOutlineCreditCard /> PAGAR TOTAL ${ productCart.reduce((a,b)=>a+b.precio,0) }</button>
                         </div>
                     </div>
                 </div>
