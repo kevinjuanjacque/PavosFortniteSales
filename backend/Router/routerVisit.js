@@ -13,5 +13,6 @@ const VisitController = require('../controller/visitController');
 routerVisit.post('/agregar', VisitController.AgregarVisita);
 
 routerVisit.get('/',VisitController.allVisit);
+routerVisit.get('/categoria-mas-popular',VisitController.CategoriaMasPopular);
 
 module.exports=routerVisit;

@@ -65,8 +65,14 @@ export const AddProduct = () => {
                         onChange={(e)=>{setForm({...Form,Categoria:e.target.value})}} 
                     >
                         <option value='Default' disabled>Seleccionar una...</option>
-                        <option> Fortnite </option>
                         <option> Playstation </option>
+                        <option> Xbox one </option>
+                        <option> Nintendo </option>
+                        <option> Steam </option>
+                        <option> Google </option>
+                        <option> Apple </option>
+                        <option> Riot</option>
+                        <option> Fortnite </option>
                     </select>
                 </div>
                 <div className="col">
@@ -79,7 +85,7 @@ export const AddProduct = () => {
                     >
                         <option value='Default' disabled>Seleccionar una...</option>
                         <option> Gift cards </option>
-                        <option> Playstation Plus</option>
+                        <option> Suscripciones</option>
                         <option> Complementos</option>
                     </select>
                 </div>

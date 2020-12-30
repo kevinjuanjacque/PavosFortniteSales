@@ -3,9 +3,9 @@ import React from 'react'
 export const PagosMasUse = () => {
     return (
         <div className="container">
-            <h1>Pagos mas usados</h1>
+            <h4 align="center">Metodos de pago más utilizados</h4>
             <hr/>
-            <div className="card">
+            <div className="card mt-3">
                 <table class="table">
                     <thead>
                         <tr>
@@ -15,16 +15,16 @@ export const PagosMasUse = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>khipu</td>
-                            <td>7</td>
+                            <td>Webpay</td>
+                            <td>22</td>
                         </tr>
                         <tr>
-                            <td>RedCompra</td>
+                            <td>Khiphu</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Flow</td>
                             <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>WePay</td>
-                            <td>1</td>
                         </tr>
                     </tbody>
                 </table>

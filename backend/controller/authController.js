@@ -167,7 +167,7 @@ AuthController.changePass=async(req,res)=>{
 
  // Personas Registradas
 AuthController.UsuariosRegistrados = async (req, res) => {
-    await bd.query(`select count(*) as cantidad from Usuario;`)
+    await bd.query(`select count(*) as cantidad from Usuario WHERE id_rol=2;`)
         .then((resp) => {
             res.json({
                 resp: 'ok',

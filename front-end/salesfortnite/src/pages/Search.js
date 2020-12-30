@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import { InProductoPsn } from '../components/Products/InProductoPsn';
+import { AddVisit } from '../helpers/function/AddVisit';
 import { CargarSearch } from '../helpers/function/CargarProductos'
 
 export const Search = () => {

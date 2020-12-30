@@ -26,14 +26,11 @@ export const ComprasPorUser = () => {
     },[]);
     
     return (
-        <div className="container mt-4">
-            <h3>Ventas Por usuarios registrados vs usuarios no registrados</h3>
+        <div className="container">
+            <h4 align="center">Ventas según tipo de usuario</h4>
             <hr />
-            <div  align="center">
-                <Doughnut data={data}  />
-            </div>
             <div className="card mt-3">
-                <table class="table ">
+            <table class="table ">
                     <thead>
                         <tr>
                             <th scope="col">Tipo de usuario</th>
@@ -52,7 +49,9 @@ export const ComprasPorUser = () => {
                         
                     </tbody>
                 </table>
+                <Doughnut data={data}  />
             </div>
+            
         </div>
     )
 }

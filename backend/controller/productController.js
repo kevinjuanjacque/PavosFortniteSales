@@ -231,6 +231,28 @@ ProductController.RetornarProductoDestacado = async (req, res) => {
 
 }
 
+ProductController.RetornarProductoMasVendido = async (req, res) => {
+    //Muestra los 6 productos mas vendidos.
+    await bd.query(`
+        SELECT p.nombre_producto as nombre, COUNT(d.id_producto) as cantidad
+        FROM DetalleVenta d JOIN Producto p on (d.id_producto = p.id_producto) 
+        GROUP BY d.id_producto, p.nombre_producto, p.precio_unitario order by cantidad desc limit 1;`)
+        .then((resp) => {
+            res.json({
+                resp: 'ok',
+                body: resp.rows
+
+            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json({
+                resp: 'Error en la bd',
+                body: err
+            });
+        });
+
+}
+
 ProductController.stockProductos=async(req,res)=>{
 
     return await bd.query('SELECT stock, nombre_producto FROM producto').then((resp) => {

@@ -12,7 +12,7 @@ export const PersonRegister = () => {
 
     return (
         <div className="container">
-            <h1>Personas Registradas</h1>
+            <h3>Personas Registradas</h3>
             <hr/>
 
             <table class="table ">

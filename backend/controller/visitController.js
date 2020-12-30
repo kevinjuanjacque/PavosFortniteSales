@@ -60,4 +60,29 @@ VisitController.allVisit=async(req,res)=>{
 
 }
 
+VisitController.CategoriaMasPopular=async(req,res)=>{
+
+    await bd.query(`
+    select substring(alias_url, 12) as nombre_categoria, count(alias_url) as visitas from visita  where alias_url like '/Categoria/%' group by nombre_categoria, alias_url order by visitas desc limit 1;
+    `)
+    .then((resp) => {
+        res.json({
+            resp: 'ok',
+            body: resp.rows
+
+        });
+    }).catch((err) => {
+        console.log(err);
+        res.status(400).json({
+            resp: 'Error en la bd',
+            body: err
+        });
+    });
+
+
+
+}
+
+
+
 module.exports=VisitController;

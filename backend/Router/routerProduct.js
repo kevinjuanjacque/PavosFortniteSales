@@ -63,4 +63,8 @@ routerProduct.get('/stock',ProductController.stockProductos);
 routerProduct.get('/Allproduct',ProductController.allProduct);
 
 routerProduct.post('/retonarArrayProduct',ProductController.ArrayProducts)
+
+//retornar el producto más vendido
+routerProduct.get('/producto-mas-vendido',ProductController.RetornarProductoMasVendido)
+
 module.exports=routerProduct;

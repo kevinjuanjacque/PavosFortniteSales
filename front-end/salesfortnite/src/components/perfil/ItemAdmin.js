@@ -21,7 +21,7 @@ export const ItemAdmin = ({history}) => {
             
             <Link to="/"  className="list-group-item list-group-item-primary list-group-item-action text-white">
                 
-                <FcSalesPerformance /> Ventas
+                <FcSalesPerformance /> Resumen
                 
             </Link>
             <Link to="/Productos"  className="list-group-item list-group-item-primary list-group-item-action text-white">
